@@ -16,13 +16,13 @@ before_install:
 
 jobs:
   include:
-    - stage: "Tests"
-      name: "Lint Tests"
-      script: - yarn lint
-    - script: - yarn test
-      name: "Unit Tests"
-    - script: - yarn e2e
-      name: "E2E Tests"
+    - stage: 'Tests'
+      name: 'Lint Tests'
+      script: yarn lint
+    - script: yarn test
+      name: 'Unit Tests'
+    - script: yarn e2e
+      name: 'E2E Tests'
 
     - stage: BuildAndDeploy
       script:
