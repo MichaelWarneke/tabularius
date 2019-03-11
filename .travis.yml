@@ -26,5 +26,5 @@ jobs:
 
     - stage: BuildAndDeploy
       script:
-        - yarn build --prod --base-href https://github.com/MichaelWarneke/tabularius/
+        - yarn build --prod
         - firebase deploy --token $FIREBASE_TOKEN
