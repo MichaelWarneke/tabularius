@@ -16,20 +16,15 @@ before_install:
 
 jobs:
   include:
-    - stage: LintTest
-      script:
-        - yarn lint
-    - stage: UnitTest
-      script:
-        - yarn test
-    - stage: E2ETest
-      script:
-        - yarn e2e
+    - stage: "Tests"
+      name: "Lint Tests"
+      script: - yarn lint
+    - script: - yarn test
+      name: "Unit Tests"
+    - script: - yarn e2e
+      name: "E2E Tests"
 
-    - stage: BuildProduction
+    - stage: BuildAndDeploy
       script:
         - yarn build --prod --base-href https://github.com/MichaelWarneke/tabularius/
-
-    - stage: Deploy
-      script:
         - firebase deploy --token $FIREBASE_TOKEN
