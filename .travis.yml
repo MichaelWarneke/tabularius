@@ -5,20 +5,25 @@ cache:
   npm: true
   yarn: true
   directories:
-    - ~/.cache
-
+    - '~/.cache'
 dist: trusty
 sudo: required
-
 branches:
   only:
     - master
-
 before_script:
   - yarn global add @angular/cli
-
 script:
   - yarn lint
   - yarn test
   - yarn e2e
   - yarn build --prod --base-href https://github.com/MichaelWarneke/tabularius/
+
+deploy:
+  provider: firebase
+  token:
+    secure: secure
+
+env:
+  global:
+    secure: NYQ5cCpHgBURhlHp/48nXfUlw7SNvvsIaHWM+yfu5tC8KQRg8207OKqxdf0FEcSEbFhOnu9QxwsCGYSGFdAYFh/5sphkTLEQd1m+HWnk0xjSvZBAAS11w7g4W34l+XFgfPd2ySTHnu+H4v9FBy4AbmfRan15241paFSOGdlihYJ0Wp28/QdDC38g1Sbdly1WmC7O+xjU9hmxGzaTqOAOtOMj7XLLHklvUQ1m1j5J2rj7cHGkgmMqNB2yvvW+PqV8UPDJJZQ2wNzdnYc+HtzgM60/9Pl2p9QhFz1rNesP+wwYeOOe6356NSU4LqictsPBT+5hqVAawZQRRciyO0iYgo0j+JcEDgCndOd1D0in2ezSOpRNj2JNNtIWQFdEsSn5k1FVaCSgx8PtLxRzZMP7NoQDBG7KwiXCHa/F0OWU4GXEnqDl8cydU1U7ce+v0zaca+/GV+FuPiAI7c+J6C6+RJgX7JcVb/Fk6JVPOeQ6UEU2KRQ2ayPFRFcAi447gM0mq3Zwv/lzFEg5pVnvEn4MDNcG8kUrd/ayf9rqCnCrd0TbkGKblKfrIkurfU9V27P8JBaMLOyGj54bO/f8xjBzT1wsMs9FxmcB/x337MNftsP3xYH4KYlyc9Loq5No0igNjYPVxyxhIvNCbgba1vx30brgXO1m+JPHKZttrcGmcsw=
