@@ -2,7 +2,6 @@ language: node_js
 node_js:
   - '8'
 cache:
-  npm: true
   yarn: true
   directories:
     - '~/.cache'
@@ -11,15 +10,26 @@ sudo: required
 branches:
   only:
     - master
-before_script:
+before_install:
   - yarn global add @angular/cli
-script:
-  - yarn lint
-  - yarn test
-  - yarn e2e
-  - yarn build --prod --base-href https://github.com/MichaelWarneke/tabularius/
+  - yarn global add firebase-tools
 
-deploy:
-  provider: firebase
-  token:
-    secure: $FIREBASE_TOKEN
+jobs:
+  include:
+    - stage: LintTest
+      script:
+        - yarn lint
+    - stage: UnitTest
+      script:
+        - yarn test
+    - stage: E2ETest
+      script:
+        - yarn e2e
+
+    - stage: BuildProduction
+      script:
+        - yarn build --prod --base-href https://github.com/MichaelWarneke/tabularius/
+
+    - stage: Deploy
+      script:
+        - firebase deploy --token $FIREBASE_TOKEN
