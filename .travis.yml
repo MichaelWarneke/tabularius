@@ -9,8 +9,9 @@ branches:
     - master
 
 before_script:
-  - npm install -g @angular/cli
+  - yarn global add @angular/cli
 
 script:
   - yarn lint
+  - yarn test
   - yarn build --prod --base-href https://github.com/MichaelWarneke/tabularius/
