@@ -1,6 +1,12 @@
 language: node_js
 node_js:
   - '8'
+cache:
+  npm: true
+  yarn: true
+  directories:
+    - ~/.cache
+
 dist: trusty
 sudo: required
 
@@ -8,10 +14,14 @@ branches:
   only:
     - master
 
+install:
+  - yarn ci
+
 before_script:
   - yarn global add @angular/cli
 
 script:
   - yarn lint
   - yarn test
+  - yarn e2e
   - yarn build --prod --base-href https://github.com/MichaelWarneke/tabularius/
