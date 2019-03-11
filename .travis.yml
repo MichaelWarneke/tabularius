@@ -10,9 +10,8 @@ sudo: required
 branches:
   only:
     - master
-before_install:
-  - yarn global add @angular/cli
-  - yarn global add firebase-tools
+before_script:
+  - yarn global add @angular/cli firebase-tools
 
 jobs:
   include:
