@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - '9'
+  - '8'
 dist: trusty
 sudo: required
 
@@ -12,5 +12,5 @@ before_script:
   - npm install -g @angular/cli
 
 script:
-  - ng lint
-  - ng build --prod --base-href https://github.com/MichaelWarneke/tabularius/
+  - yarn lint
+  - yarn build --prod --base-href https://github.com/MichaelWarneke/tabularius/
