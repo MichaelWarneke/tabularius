@@ -15,7 +15,7 @@ branches:
     - master
 
 install:
-  - npm ci
+  - yarn global add ci
 
 before_script:
   - yarn global add @angular/cli
