@@ -9,17 +9,22 @@
   },
   "projects": {
     "frontend-tabu-app": {
-      "tags": [
-        "tabu-app"
-      ]
+      "tags": ["tabu-app"]
     },
     "frontend-tabu-app-e2e": {
       "tags": []
     },
     "backend-functions": {
-      "tags": [
-        "backend-functions-app"
-      ]
+      "tags": ["backend-functions-app"]
+    },
+    "shared-core": {
+      "tags": ["shared-core"]
+    },
+    "ui": {
+      "tags": ["ui"]
+    },
+    "shared-libs": {
+      "tags": ["shared-libs"]
     }
   }
 }

@@ -1,0 +1,66 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)"
+  >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a
+        routerLink="/dash"
+        routerLinkActive="active"
+        mat-list-item
+        href="#"
+        i18n
+        (click)="closeDrawer()"
+        >Dash</a
+      >
+      <a
+        routerLink="/add"
+        routerLinkActive="active"
+        mat-list-item
+        href="#"
+        i18n
+        (click)="closeDrawer()"
+        >Add Entry</a
+      >
+      <a
+        routerLink="/import"
+        routerLinkActive="active"
+        mat-list-item
+        href="#"
+        i18n
+        (click)="closeDrawer()"
+        >Import</a
+      >
+      <a
+        routerLink="/accounts"
+        routerLinkActive="active"
+        mat-list-item
+        href="#"
+        i18n
+        (click)="closeDrawer()"
+        >Accounts</a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="(isHandset$ | async)"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span i18n>TABULARIUS</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
