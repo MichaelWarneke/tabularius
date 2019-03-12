@@ -18,12 +18,12 @@ jobs:
     - stage: 'Tests'
       name: 'Lint Tests'
       script: yarn lint
-    - script: yarn test
+    - script: yarn test-headless
       name: 'Unit Tests'
-    - script: yarn e2e
+    - script: yarn e2e-headless
       name: 'E2E Tests'
 
     - stage: BuildAndDeploy
       script:
-        - yarn build --prod
+        - yarn build --prod --aot
         - firebase deploy --token $FIREBASE_TOKEN
