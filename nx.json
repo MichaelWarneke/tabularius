@@ -20,9 +20,6 @@
     "ui": {
       "tags": ["ui"]
     },
-    "shared-libs": {
-      "tags": ["shared-libs"]
-    },
     "modules-app-dash": {
       "tags": ["module"]
     },
@@ -37,6 +34,9 @@
     },
     "modules-app-setup": {
       "tags": ["module"]
+    },
+    "shared-models": {
+      "tags": ["data"]
     }
   }
 }

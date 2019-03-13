@@ -208,36 +208,6 @@
         }
       }
     },
-    "shared-libs": {
-      "root": "libs/shared-libs",
-      "sourceRoot": "libs/shared-libs/src",
-      "projectType": "library",
-      "prefix": "tabularius",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/shared-libs/tsconfig.lib.json",
-              "libs/shared-libs/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/builders:jest",
-          "options": {
-            "jestConfig": "libs/shared-libs/jest.config.js",
-            "tsConfig": "libs/shared-libs/tsconfig.spec.json"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/schematics:component": {
-          "styleext": "scss"
-        }
-      }
-    },
     "modules-app-dash": {
       "root": "libs/modules/app-dash",
       "sourceRoot": "libs/modules/app-dash/src",
@@ -384,6 +354,36 @@
             "jestConfig": "libs/modules/app-setup/jest.config.js",
             "tsConfig": "libs/modules/app-setup/tsconfig.spec.json",
             "setupFile": "libs/modules/app-setup/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "shared-models": {
+      "root": "libs/shared/models",
+      "sourceRoot": "libs/shared/models/src",
+      "projectType": "library",
+      "prefix": "tabularius",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/models/tsconfig.lib.json",
+              "libs/shared/models/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/shared/models/jest.config.js",
+            "tsConfig": "libs/shared/models/tsconfig.spec.json"
           }
         }
       },
