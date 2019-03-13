@@ -12,6 +12,8 @@
 
     "../../../libs/modules/app-reports/src/index.ts",
 
-    "../../../libs/modules/app-import/src/index.ts"
+    "../../../libs/modules/app-import/src/index.ts",
+
+    "../../../libs/modules/app-setup/src/index.ts"
   ]
 }

@@ -37,6 +37,9 @@
     },
     "modules-app-import": {
       "tags": ["module"]
+    },
+    "modules-app-setup": {
+      "tags": ["module"]
     }
   }
 }

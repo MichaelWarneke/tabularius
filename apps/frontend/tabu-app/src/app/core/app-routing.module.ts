@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'import',
     loadChildren: '@tabularius/modules/app-import#AppImportModule'
+  },
+  {
+    path: 'setup',
+    loadChildren: '@tabularius/modules/app-setup#AppSetupModule'
   }
 ];
 

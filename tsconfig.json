@@ -25,7 +25,10 @@
       "@tabularius/modules/app-reports": [
         "libs/modules/app-reports/src/index.ts"
       ],
-      "@tabularius/modules/app-import": ["libs/modules/app-import/src/index.ts"]
+      "@tabularius/modules/app-import": [
+        "libs/modules/app-import/src/index.ts"
+      ],
+      "@tabularius/modules/app-setup": ["libs/modules/app-setup/src/index.ts"]
     },
     "strict": true
   },
