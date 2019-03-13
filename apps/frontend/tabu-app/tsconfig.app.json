@@ -8,6 +8,8 @@
   "include": [
     "**/*.ts",
     "../../../libs/modules/app-dash/src/index.ts",
-    "../../../libs/modules/app-journal/src/index.ts"
+    "../../../libs/modules/app-journal/src/index.ts",
+
+    "../../../libs/modules/app-reports/src/index.ts"
   ]
 }

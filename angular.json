@@ -329,6 +329,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "modules-app-reports": {
+      "root": "libs/modules/app-reports",
+      "sourceRoot": "libs/modules/app-reports/src",
+      "projectType": "library",
+      "prefix": "app-reports",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/modules/app-reports/tsconfig.lib.json",
+              "libs/modules/app-reports/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/modules/app-reports/jest.config.js",
+            "tsConfig": "libs/modules/app-reports/tsconfig.spec.json",
+            "setupFile": "libs/modules/app-reports/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

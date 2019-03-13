@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'journal',
     loadChildren: '@tabularius/modules/app-journal#AppJournalModule'
+  },
+  {
+    path: 'reports',
+    loadChildren: '@tabularius/modules/app-reports#AppReportsModule'
   }
 ];
 

@@ -31,6 +31,9 @@
     },
     "modules-app-journal": {
       "tags": ["module"]
+    },
+    "modules-app-reports": {
+      "tags": ["module"]
     }
   }
 }
