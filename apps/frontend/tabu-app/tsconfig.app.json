@@ -5,5 +5,9 @@
     "types": []
   },
   "exclude": ["src/test-setup.ts", "**/*.spec.ts"],
-  "include": ["**/*.ts", "../../../libs/modules/app-dash/src/index.ts"]
+  "include": [
+    "**/*.ts",
+    "../../../libs/modules/app-dash/src/index.ts",
+    "../../../libs/modules/app-journal/src/index.ts"
+  ]
 }

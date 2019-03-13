@@ -9,7 +9,7 @@
   },
   "projects": {
     "frontend-tabu-app": {
-      "tags": ["tabu-app"]
+      "tags": ["tabu-app", "web-app"]
     },
     "frontend-tabu-app-e2e": {
       "tags": []
@@ -27,7 +27,10 @@
       "tags": ["shared-libs"]
     },
     "modules-app-dash": {
-      "tags": ["app-dash"]
+      "tags": ["module"]
+    },
+    "modules-app-journal": {
+      "tags": ["module"]
     }
   }
 }

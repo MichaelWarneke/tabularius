@@ -298,6 +298,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "modules-app-journal": {
+      "root": "libs/modules/app-journal",
+      "sourceRoot": "libs/modules/app-journal/src",
+      "projectType": "library",
+      "prefix": "app-journal",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/modules/app-journal/tsconfig.lib.json",
+              "libs/modules/app-journal/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/modules/app-journal/jest.config.js",
+            "tsConfig": "libs/modules/app-journal/tsconfig.spec.json",
+            "setupFile": "libs/modules/app-journal/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
