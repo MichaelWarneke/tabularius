@@ -178,36 +178,6 @@
         }
       }
     },
-    "shared-core": {
-      "root": "libs/shared-core",
-      "sourceRoot": "libs/shared-core/src",
-      "projectType": "library",
-      "prefix": "tabularius",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/shared-core/tsconfig.lib.json",
-              "libs/shared-core/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/builders:jest",
-          "options": {
-            "jestConfig": "libs/shared-core/jest.config.js",
-            "tsConfig": "libs/shared-core/tsconfig.spec.json"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/schematics:component": {
-          "styleext": "scss"
-        }
-      }
-    },
     "ui": {
       "root": "libs/ui",
       "sourceRoot": "libs/ui/src",

@@ -17,9 +17,6 @@
     "backend-functions": {
       "tags": ["backend-functions-app"]
     },
-    "shared-core": {
-      "tags": ["shared-core"]
-    },
     "ui": {
       "tags": ["ui"]
     },

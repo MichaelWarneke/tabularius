@@ -3,18 +3,14 @@ import 'zone.js/dist/async-test.js';
 import 'zone.js/dist/proxy.js';
 import 'zone.js/dist/sync-test';
 import 'jest-zone-patch';
-import { LayoutModule } from '@angular/cdk/layout';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  MatButtonModule,
-  MatIconModule,
-  MatListModule,
-  MatSidenavModule,
-  MatToolbarModule
-} from '@angular/material';
 
 import { TabuAppSidenavComponent } from './tabu-app-sidenav.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { MaterialModule } from '@tabularius/shared-libs';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 describe('NavComponent', () => {
   let component: TabuAppSidenavComponent;
@@ -25,13 +21,11 @@ describe('NavComponent', () => {
       declarations: [TabuAppSidenavComponent],
       imports: [
         NoopAnimationsModule,
-        LayoutModule,
-        MatButtonModule,
-        MatIconModule,
-        MatListModule,
-        MatSidenavModule,
-        MatToolbarModule
-      ]
+        CommonModule,
+        RouterModule,
+        MaterialModule
+      ],
+      providers: [{ provide: BreakpointObserver, useValue: bpSpy }]
     }).compileComponents();
   }));
 

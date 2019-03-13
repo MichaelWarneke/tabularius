@@ -15,7 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@tabularius/shared-core": ["libs/shared-core/src/index.ts"],
       "@tabularius/ui": ["libs/ui/src/index.ts"],
       "@tabularius/shared-libs": ["libs/shared-libs/src/index.ts"],
       "@tabularius/modules/app-dash": ["libs/modules/app-dash/src/index.ts"],
