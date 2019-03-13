@@ -14,10 +14,12 @@ import {
   MatSelectModule
 } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [],
   imports: [
+    LayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
@@ -33,6 +35,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatSelectModule
   ],
   exports: [
+    LayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
