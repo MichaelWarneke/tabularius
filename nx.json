@@ -37,6 +37,9 @@
     },
     "shared-models": {
       "tags": ["data"]
+    },
+    "shared-ui": {
+      "tags": ["data"]
     }
   }
 }

@@ -27,7 +27,8 @@
         "libs/modules/app-import/src/index.ts"
       ],
       "@tabularius/modules/app-setup": ["libs/modules/app-setup/src/index.ts"],
-      "@tabularius/shared/models": ["libs/shared/models/src/index.ts"]
+      "@tabularius/shared/models": ["libs/shared/models/src/index.ts"],
+      "@tabularius/shared/ui": ["libs/shared/ui/src/index.ts"]
     },
     "strict": true
   },
