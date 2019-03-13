@@ -1,3 +1,3 @@
-export { SetupTaxFormModule } from './lib/form';
+export * from './lib/form';
 
-export { TabuAppSidenavModule } from './lib/nav';
+export * from './lib/nav';
