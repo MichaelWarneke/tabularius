@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'reports',
     loadChildren: '@tabularius/modules/app-reports#AppReportsModule'
+  },
+  {
+    path: 'import',
+    loadChildren: '@tabularius/modules/app-import#AppImportModule'
   }
 ];
 

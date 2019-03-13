@@ -34,6 +34,9 @@
     },
     "modules-app-reports": {
       "tags": ["module"]
+    },
+    "modules-app-import": {
+      "tags": ["module"]
     }
   }
 }
