@@ -267,6 +267,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "modules-app-dash": {
+      "root": "libs/modules/app-dash",
+      "sourceRoot": "libs/modules/app-dash/src",
+      "projectType": "library",
+      "prefix": "app-dash",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/modules/app-dash/tsconfig.lib.json",
+              "libs/modules/app-dash/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/modules/app-dash/jest.config.js",
+            "tsConfig": "libs/modules/app-dash/tsconfig.spec.json",
+            "setupFile": "libs/modules/app-dash/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

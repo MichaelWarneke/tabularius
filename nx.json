@@ -25,6 +25,9 @@
     },
     "shared-libs": {
       "tags": ["shared-libs"]
+    },
+    "modules-app-dash": {
+      "tags": ["app-dash"]
     }
   }
 }
