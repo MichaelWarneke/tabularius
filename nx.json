@@ -39,7 +39,10 @@
       "tags": ["data"]
     },
     "shared-ui": {
-      "tags": ["data"]
+      "tags": ["ui"]
+    },
+    "shared-web-core": {
+      "tags": ["web-app"]
     }
   }
 }
