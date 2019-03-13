@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { TabuAppSidenavModule } from '@tabularius/ui';
-import { WebCoreModule } from '@tabularius/shared-libs';
+import { SharedWebCoreModule } from '@tabularius/shared/web-core';
 
 @NgModule({
   declarations: [],
-  imports: [WebCoreModule, AppRoutingModule, TabuAppSidenavModule],
+  imports: [SharedWebCoreModule, AppRoutingModule, TabuAppSidenavModule],
   exports: [TabuAppSidenavModule]
 })
 export class CoreModule {}
