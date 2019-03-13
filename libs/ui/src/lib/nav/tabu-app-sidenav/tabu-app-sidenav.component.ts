@@ -5,7 +5,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material';
 
 @Component({
-  selector: 'tabularius-tabu-app-sidenav',
+  selector: 'tabu-app-sidenav',
   templateUrl: './tabu-app-sidenav.component.html',
   styleUrls: ['./tabu-app-sidenav.component.scss']
 })

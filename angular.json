@@ -182,7 +182,7 @@
       "root": "libs/ui",
       "sourceRoot": "libs/ui/src",
       "projectType": "library",
-      "prefix": "tabularius",
+      "prefix": "tabu",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
