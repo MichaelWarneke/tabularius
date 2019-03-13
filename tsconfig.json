@@ -17,6 +17,9 @@
     "paths": {
       "@tabularius/ui": ["libs/ui/src/index.ts"],
       "@tabularius/shared-libs": ["libs/shared-libs/src/index.ts"],
+      "@tabularius/shared-libs/models": [
+        "libs/shared-libs/src/lib/models/index.ts"
+      ],
       "@tabularius/modules/app-dash": ["libs/modules/app-dash/src/index.ts"],
       "@tabularius/modules/app-journal": [
         "libs/modules/app-journal/src/index.ts"
