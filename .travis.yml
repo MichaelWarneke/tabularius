@@ -20,7 +20,7 @@ jobs:
       script: yarn lint
     - script: yarn test-headless
       name: 'Unit Tests'
-    - script: yarn e2e-headless
+    - script: yarn e2e-tabu --headless
       name: 'E2E Tests'
 
     - stage: BuildAndDeploy
