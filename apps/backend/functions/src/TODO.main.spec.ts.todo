@@ -4,7 +4,7 @@ describe('helloWorld', () => {
   it('should return message', () => {
     const req = {};
     const res = {
-      send: s => {},
+      send: (s: any) => {},
       status: (s: any) => {
         this.stausCode = s;
         return this;
