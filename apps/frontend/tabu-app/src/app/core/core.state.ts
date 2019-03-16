@@ -1,8 +1,4 @@
-import {
-  ActionReducerMap,
-  MetaReducer,
-  createFeatureSelector
-} from '@ngrx/store';
+import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { routerReducer, RouterReducerState } from '@ngrx/router-store';
 import { RouterStateUrl } from '@tabularius/shared/services';
 import { storeFreeze } from 'ngrx-store-freeze';
@@ -27,8 +23,3 @@ if (!environment.production) {
   metaReducers.unshift(storeFreeze);
   metaReducers.unshift(debugReducer);
 }
-
-export const selectRouterState = createFeatureSelector<
-  AppState,
-  RouterReducerState<RouterStateUrl>
->('router');
