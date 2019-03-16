@@ -43,6 +43,9 @@
     },
     "shared-web-core": {
       "tags": ["web-app"]
+    },
+    "shared-services": {
+      "tags": ["core-services"]
     }
   }
 }

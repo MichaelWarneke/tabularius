@@ -29,7 +29,8 @@
       "@tabularius/modules/app-setup": ["libs/modules/app-setup/src/index.ts"],
       "@tabularius/shared/models": ["libs/shared/models/src/index.ts"],
       "@tabularius/shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@tabularius/shared/web-core": ["libs/shared/web-core/src/index.ts"]
+      "@tabularius/shared/web-core": ["libs/shared/web-core/src/index.ts"],
+      "@tabularius/shared/services": ["libs/shared/services/src/index.ts"]
     },
     "strict": true
   },
