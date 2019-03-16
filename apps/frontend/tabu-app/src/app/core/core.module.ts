@@ -6,6 +6,8 @@ import { SharedWebCoreModule } from '@tabularius/shared/web-core';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './core.state';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../../environments/environment';
 
 @NgModule({
   declarations: [],
@@ -14,6 +16,10 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     AppRoutingModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule.forRoot(),
+    StoreDevtoolsModule.instrument({
+      name: 'Tabularius',
+      logOnly: environment.production
+    }),
     TabuAppSidenavModule
   ],
   exports: [TabuAppSidenavModule]
