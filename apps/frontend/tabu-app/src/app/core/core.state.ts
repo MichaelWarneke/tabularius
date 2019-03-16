@@ -4,11 +4,11 @@ import {
   createFeatureSelector
 } from '@ngrx/store';
 import { routerReducer, RouterReducerState } from '@ngrx/router-store';
-import { RouterStateUrl } from './router/router.state';
+import { RouterStateUrl } from '@tabularius/shared/services';
 import { storeFreeze } from 'ngrx-store-freeze';
 
-import { initStateFromLocalStorage } from './meta-reducers/init-state-from-local-storage.reducer';
-import { debug } from './meta-reducers/debug.reducer';
+import { initStateFromLocalStorageReducer } from '@tabularius/shared/services';
+import { debugReducer } from '@tabularius/shared/services';
 
 import { environment } from '../../environments/environment';
 
@@ -21,11 +21,11 @@ export const reducers: ActionReducerMap<AppState> = {
 };
 
 export const metaReducers: MetaReducer<AppState>[] = [
-  initStateFromLocalStorage
+  initStateFromLocalStorageReducer
 ];
 if (!environment.production) {
   metaReducers.unshift(storeFreeze);
-  metaReducers.unshift(debug);
+  metaReducers.unshift(debugReducer);
 }
 
 export const selectRouterState = createFeatureSelector<
