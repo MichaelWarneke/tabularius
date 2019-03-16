@@ -10,6 +10,10 @@
   background: inherit;
 }
 
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;

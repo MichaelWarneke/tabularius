@@ -3,6 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'account',
+    loadChildren: '@tabularius/modules/app-account#AppAccountModule'
+  },
+  {
     path: 'dash',
     loadChildren: '@tabularius/modules/app-dash#AppDashModule'
   },

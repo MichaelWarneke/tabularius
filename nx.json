@@ -46,6 +46,9 @@
     },
     "shared-services": {
       "tags": ["core-services"]
+    },
+    "modules-app-account": {
+      "tags": ["module"]
     }
   }
 }

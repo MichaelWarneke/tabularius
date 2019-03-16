@@ -30,7 +30,10 @@
       "@tabularius/shared/models": ["libs/shared/models/src/index.ts"],
       "@tabularius/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@tabularius/shared/web-core": ["libs/shared/web-core/src/index.ts"],
-      "@tabularius/shared/services": ["libs/shared/services/src/index.ts"]
+      "@tabularius/shared/services": ["libs/shared/services/src/index.ts"],
+      "@tabularius/modules/app-account": [
+        "libs/modules/app-account/src/index.ts"
+      ]
     },
     "strict": true
   },
