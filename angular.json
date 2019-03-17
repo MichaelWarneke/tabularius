@@ -24,7 +24,8 @@
             "tsConfig": "apps/frontend/tabu-app/tsconfig.app.json",
             "assets": [
               "apps/frontend/tabu-app/src/favicon.ico",
-              "apps/frontend/tabu-app/src/assets"
+              "apps/frontend/tabu-app/src/assets",
+              "apps/frontend/tabu-app/src/manifest.json"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
@@ -56,7 +57,8 @@
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ]
+              ],
+              "serviceWorker": true
             }
           }
         },
@@ -84,7 +86,9 @@
               "apps/frontend/tabu-app/tsconfig.app.json",
               "apps/frontend/tabu-app/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
@@ -119,7 +123,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/frontend/tabu-app-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -137,7 +143,9 @@
             "outputPath": "dist/apps/backend/functions",
             "main": "apps/backend/functions/src/main.ts",
             "tsConfig": "apps/backend/functions/tsconfig.app.json",
-            "assets": ["apps/backend/functions/src/assets"]
+            "assets": [
+              "apps/backend/functions/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -166,7 +174,9 @@
               "apps/backend/functions/tsconfig.app.json",
               "apps/backend/functions/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
@@ -191,7 +201,9 @@
               "libs/ui/tsconfig.lib.json",
               "libs/ui/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
@@ -222,7 +234,9 @@
               "libs/modules/app-dash/tsconfig.lib.json",
               "libs/modules/app-dash/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
@@ -253,7 +267,9 @@
               "libs/modules/app-journal/tsconfig.lib.json",
               "libs/modules/app-journal/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
@@ -284,7 +300,9 @@
               "libs/modules/app-reports/tsconfig.lib.json",
               "libs/modules/app-reports/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
@@ -315,7 +333,9 @@
               "libs/modules/app-import/tsconfig.lib.json",
               "libs/modules/app-import/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
@@ -346,7 +366,9 @@
               "libs/modules/app-setup/tsconfig.lib.json",
               "libs/modules/app-setup/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
@@ -377,7 +399,9 @@
               "libs/shared/models/tsconfig.lib.json",
               "libs/shared/models/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
@@ -407,7 +431,9 @@
               "libs/shared/ui/tsconfig.lib.json",
               "libs/shared/ui/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
@@ -438,7 +464,9 @@
               "libs/shared/web-core/tsconfig.lib.json",
               "libs/shared/web-core/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
@@ -469,7 +497,9 @@
               "libs/shared/services/tsconfig.lib.json",
               "libs/shared/services/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
@@ -499,7 +529,9 @@
               "libs/modules/app-account/tsconfig.lib.json",
               "libs/modules/app-account/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "test": {
