@@ -33,7 +33,8 @@
       "@tabularius/shared/services": ["libs/shared/services/src/index.ts"],
       "@tabularius/modules/app-account": [
         "libs/modules/app-account/src/index.ts"
-      ]
+      ],
+      "@tabularius/database": ["libs/database/src/index.ts"]
     },
     "strict": true
   },

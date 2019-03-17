@@ -86,9 +86,7 @@
               "apps/frontend/tabu-app/tsconfig.app.json",
               "apps/frontend/tabu-app/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -123,9 +121,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/frontend/tabu-app-e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -143,9 +139,7 @@
             "outputPath": "dist/apps/backend/functions",
             "main": "apps/backend/functions/src/main.ts",
             "tsConfig": "apps/backend/functions/tsconfig.app.json",
-            "assets": [
-              "apps/backend/functions/src/assets"
-            ]
+            "assets": ["apps/backend/functions/src/assets"]
           },
           "configurations": {
             "production": {
@@ -174,9 +168,7 @@
               "apps/backend/functions/tsconfig.app.json",
               "apps/backend/functions/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -201,9 +193,7 @@
               "libs/ui/tsconfig.lib.json",
               "libs/ui/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -234,9 +224,7 @@
               "libs/modules/app-dash/tsconfig.lib.json",
               "libs/modules/app-dash/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -267,9 +255,7 @@
               "libs/modules/app-journal/tsconfig.lib.json",
               "libs/modules/app-journal/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -300,9 +286,7 @@
               "libs/modules/app-reports/tsconfig.lib.json",
               "libs/modules/app-reports/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -333,9 +317,7 @@
               "libs/modules/app-import/tsconfig.lib.json",
               "libs/modules/app-import/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -366,9 +348,7 @@
               "libs/modules/app-setup/tsconfig.lib.json",
               "libs/modules/app-setup/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -399,9 +379,7 @@
               "libs/shared/models/tsconfig.lib.json",
               "libs/shared/models/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -431,9 +409,7 @@
               "libs/shared/ui/tsconfig.lib.json",
               "libs/shared/ui/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -464,9 +440,7 @@
               "libs/shared/web-core/tsconfig.lib.json",
               "libs/shared/web-core/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -497,9 +471,7 @@
               "libs/shared/services/tsconfig.lib.json",
               "libs/shared/services/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -529,9 +501,7 @@
               "libs/modules/app-account/tsconfig.lib.json",
               "libs/modules/app-account/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "test": {
@@ -540,6 +510,37 @@
             "jestConfig": "libs/modules/app-account/jest.config.js",
             "tsConfig": "libs/modules/app-account/tsconfig.spec.json",
             "setupFile": "libs/modules/app-account/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "database": {
+      "root": "libs/database",
+      "sourceRoot": "libs/database/src",
+      "projectType": "library",
+      "prefix": "tabularius",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/database/tsconfig.lib.json",
+              "libs/database/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/database/jest.config.js",
+            "tsConfig": "libs/database/tsconfig.spec.json",
+            "setupFile": "libs/database/src/test-setup.ts"
           }
         }
       },

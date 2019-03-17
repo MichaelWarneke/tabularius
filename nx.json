@@ -49,6 +49,9 @@
     },
     "modules-app-account": {
       "tags": ["module"]
+    },
+    "database": {
+      "tags": ["database"]
     }
   }
 }
