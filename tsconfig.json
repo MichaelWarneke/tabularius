@@ -35,7 +35,8 @@
         "libs/modules/app-account/src/index.ts"
       ],
       "@tabularius/database": ["libs/database/src/index.ts"],
-      "@tabularius/core/store": ["libs/core/store/src/index.ts"]
+      "@tabularius/core/store": ["libs/core/store/src/index.ts"],
+      "@tabularius/core/router-guards": ["libs/core/router-guards/src/index.ts"]
     },
     "strict": true
   },

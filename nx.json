@@ -55,6 +55,9 @@
     },
     "core-store": {
       "tags": ["store"]
+    },
+    "core-router-guards": {
+      "tags": ["router-guards"]
     }
   }
 }

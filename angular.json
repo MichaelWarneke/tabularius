@@ -580,6 +580,36 @@
           "styleext": "scss"
         }
       }
+    },
+    "core-router-guards": {
+      "root": "libs/core/router-guards",
+      "sourceRoot": "libs/core/router-guards/src",
+      "projectType": "library",
+      "prefix": "tabularius",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/core/router-guards/tsconfig.lib.json",
+              "libs/core/router-guards/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/core/router-guards/jest.config.js",
+            "tsConfig": "libs/core/router-guards/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
