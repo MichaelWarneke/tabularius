@@ -1,6 +1,7 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { DatabaseModule } from '@tabularius/database';
 import { TabuAppSidenavModule } from '@tabularius/ui';
 import { SharedWebCoreModule } from '@tabularius/shared/web-core';
 import { StoreModule } from '@ngrx/store';
@@ -16,6 +17,7 @@ import { CustomSerializer } from '@tabularius/shared/services';
   imports: [
     SharedWebCoreModule,
     AppRoutingModule,
+    DatabaseModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule.forRoot({
       serializer: CustomSerializer
