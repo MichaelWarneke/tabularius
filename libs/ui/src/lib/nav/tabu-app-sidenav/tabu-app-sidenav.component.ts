@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
@@ -15,6 +15,7 @@ export class TabuAppSidenavComponent implements OnInit {
     .pipe(map(result => result.matches));
 
   @ViewChild('drawer') sidenav?: MatSidenav;
+  @Input() userName: string | null | undefined;
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 

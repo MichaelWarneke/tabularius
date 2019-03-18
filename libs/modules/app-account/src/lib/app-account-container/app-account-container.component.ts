@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiAuthFacade } from '@tabularius/core/store';
+import { Observable } from 'rxjs';
+import { IUser } from '@tabularius/shared/models';
+import { IAuthService } from '@tabularius/database';
 
 @Component({
   selector: 'app-account-app-account-container',
@@ -6,10 +10,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app-account-container.component.scss']
 })
 export class AppAccountContainerComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  user$: Observable<IUser | null>;
+  constructor(private store: ApiAuthFacade, private db: IAuthService) {
+    this.user$ = store.user$;
   }
 
+  ngOnInit() {}
+
+  save(user: IUser) {
+    this.store.updateUser(user);
+  }
+
+  login() {
+    this.db.login();
+  }
+
+  logout() {
+    this.db.logout();
+  }
 }

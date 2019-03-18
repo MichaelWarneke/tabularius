@@ -52,6 +52,9 @@
     },
     "database": {
       "tags": ["database"]
+    },
+    "core-store": {
+      "tags": ["store"]
     }
   }
 }

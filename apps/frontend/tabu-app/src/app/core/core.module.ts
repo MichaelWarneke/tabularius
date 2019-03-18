@@ -11,6 +11,8 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../environments/environment';
 import { CustomSerializer } from '@tabularius/shared/services';
+import { CoreStoreModule } from '@tabularius/core/store';
+import { NxModule } from '@nrwl/nx';
 
 @NgModule({
   declarations: [],
@@ -18,6 +20,7 @@ import { CustomSerializer } from '@tabularius/shared/services';
     SharedWebCoreModule,
     AppRoutingModule,
     DatabaseModule,
+    NxModule.forRoot(),
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule.forRoot({
       serializer: CustomSerializer
@@ -27,9 +30,11 @@ import { CustomSerializer } from '@tabularius/shared/services';
       name: 'Tabularius',
       logOnly: environment.production
     }),
+
+    CoreStoreModule,
     TabuAppSidenavModule
   ],
-  exports: [TabuAppSidenavModule]
+  exports: [SharedWebCoreModule, TabuAppSidenavModule]
 })
 export class CoreModule {
   constructor(

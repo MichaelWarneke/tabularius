@@ -1,8 +1,10 @@
-import { Injectable } from '@angular/core';
-import { IAuthService, IUser, ICredentials } from '../api/auth.service';
+import { Injectable, OnDestroy } from '@angular/core';
+import { IAuthService } from '../api/auth.service';
+import { IUser, ICredentials } from '@tabularius/shared/models';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable, of } from 'rxjs';
 import { switchMap, startWith, tap, filter, map } from 'rxjs/operators';
+import { testCredentials } from '../firebase/firebase-key';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +14,16 @@ export class FirebaseAuthService implements IAuthService {
 
   getAuthUser(): Observable<IUser | null> {
     return this.afAuth.authState.pipe(
-      map(user => {
+      switchMap(user => {
         if (user) {
-          return {
+          return of({
             uid: user.uid,
             email: user.email,
             displayName: user.displayName,
             photoUrl: user.photoURL
-          };
+          } as IUser);
         } else {
-          return null;
+          return of(null);
         }
       })
     );
@@ -39,8 +41,25 @@ export class FirebaseAuthService implements IAuthService {
     );
   }
 
-  async setAuthUserProfile(user: IUser): Promise<any> {
-    return Promise.reject('TODO');
+  async updateAuthUserProfile(user: IUser): Promise<any> {
+    if (
+      user &&
+      user.uid &&
+      user.uid.length > 1 &&
+      user.email &&
+      user.email.length > 1
+    ) {
+      if (this.afAuth.auth.currentUser) {
+        return this.afAuth.auth.currentUser.updateProfile({
+          displayName: user.displayName,
+          photoURL: user.photoURL
+        });
+      } else {
+        return Promise.reject('setAuthUserProfile: User not set properly');
+      }
+    } else {
+      return Promise.reject('setAuthUserProfile: User not set properly');
+    }
   }
 
   async loginEmailPassword(credentials: ICredentials): Promise<any> {
@@ -52,5 +71,15 @@ export class FirebaseAuthService implements IAuthService {
     } else {
       return Promise.reject('No Email Provided');
     }
+  }
+
+  async login(): Promise<any> {
+    return this.afAuth.auth.signInWithEmailAndPassword(
+      testCredentials.email,
+      testCredentials.pwd
+    );
+  }
+  async logout(): Promise<any> {
+    return this.afAuth.auth.signOut();
   }
 }

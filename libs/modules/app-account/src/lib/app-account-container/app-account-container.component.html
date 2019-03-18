@@ -1,3 +1,6 @@
-<p>
-  app-account-container works!
-</p>
+<tabu-account-user
+  [user]="user$ | async"
+  (save)="save($event)"
+  (login)="login()"
+  (logout)="logout()"
+></tabu-account-user>
