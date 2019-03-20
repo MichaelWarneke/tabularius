@@ -1,8 +1,6 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { ApiAuthFacade } from '@tabularius/core/store';
-import { map } from 'rxjs/operators';
-import { IUser } from '@tabularius/shared/models';
 
 @Component({
   selector: 'tabu-app-root',
@@ -11,8 +9,8 @@ import { IUser } from '@tabularius/shared/models';
 })
 export class AppComponent {
   title = 'Tabularius';
-  userDisplayName$: Observable<string | null | undefined>;
+  userDisplayName$: Observable<string | null | undefined> = of(null);
   constructor(private store: ApiAuthFacade) {
-    this.userDisplayName$ = store.userName$;
+    this.userDisplayName$ = this.store.userName$;
   }
 }
