@@ -1,6 +1,6 @@
 <tabu-account-user
   [user]="user$ | async"
   (save)="save($event)"
-  (login)="login()"
+  (login)="login($event)"
   (logout)="logout()"
 ></tabu-account-user>

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IAuthService } from '@tabularius/database';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dash-app-dash-container',

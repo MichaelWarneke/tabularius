@@ -76,7 +76,7 @@ export class FirebaseAuthService implements IAuthService {
   async login(): Promise<any> {
     return this.afAuth.auth.signInWithEmailAndPassword(
       testCredentials.email,
-      testCredentials.pwd
+      testCredentials.password
     );
   }
   async logout(): Promise<any> {

@@ -58,6 +58,9 @@
     },
     "core-router-guards": {
       "tags": ["router-guards"]
+    },
+    "modules-app-shell": {
+      "tags": ["module"]
     }
   }
 }

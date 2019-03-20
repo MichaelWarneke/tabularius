@@ -1,40 +1,22 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { DatabaseModule } from '@tabularius/database';
-import { TabuAppSidenavModule } from '@tabularius/ui';
+import { AppShellModule } from '@tabularius/modules/app-shell';
 import { SharedWebCoreModule } from '@tabularius/shared/web-core';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { reducers, metaReducers } from './core.state';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../../environments/environment';
-import { CustomSerializer } from '@tabularius/shared/services';
-import { CoreStoreModule } from '@tabularius/core/store';
-import { NxModule } from '@nrwl/nx';
 
 @NgModule({
   declarations: [],
   imports: [
     SharedWebCoreModule,
     AppRoutingModule,
-    DatabaseModule,
-    NxModule.forRoot(),
-    StoreModule.forRoot(reducers, { metaReducers }),
-    StoreRouterConnectingModule.forRoot({
-      serializer: CustomSerializer
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production
     }),
-    EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({
-      name: 'Tabularius',
-      logOnly: environment.production
-    }),
-
-    CoreStoreModule,
-    TabuAppSidenavModule
+    AppShellModule
   ],
-  exports: [SharedWebCoreModule, TabuAppSidenavModule]
+  exports: [SharedWebCoreModule, AppShellModule]
 })
 export class CoreModule {
   constructor(

@@ -20,7 +20,7 @@ export class AccountUserComponent implements OnInit {
   @Output() login = new EventEmitter<any>();
   @Output() logout = new EventEmitter<any>();
   @Input()
-  set user(item: IUser) {
+  set user(item: IUser | null) {
     this._user = item;
     if (item) {
       this.form.setValue({
@@ -32,6 +32,9 @@ export class AccountUserComponent implements OnInit {
     } else {
       this.form.reset();
     }
+  }
+  get user(): IUser | null {
+    return this._user;
   }
   form = this.fb.group(new UserModel());
 
@@ -46,5 +49,9 @@ export class AccountUserComponent implements OnInit {
         uid: this._user.uid
       } as IUser);
     }
+  }
+
+  onlogin() {
+    this.login.emit({ email: 'Test', password: '123' });
   }
 }

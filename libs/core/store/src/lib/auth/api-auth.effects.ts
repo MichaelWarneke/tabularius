@@ -10,7 +10,9 @@ import {
   ApiAuthActionTypes,
   ApiAuthError,
   ApiAuthSuccess,
-  ApiAuthChanged
+  ApiAuthChanged,
+  ApiAuthLogout,
+  ApiAuthLogin
 } from './api-auth.actions';
 import { IAuthService } from '@tabularius/database';
 import { defineBase } from '@angular/core/src/render3';
@@ -32,7 +34,7 @@ export class ApiAuthEffects {
     })
   );
 
-  @Effect() updateTodo = this.dataPersistence.pessimisticUpdate(
+  @Effect() updateAuth = this.dataPersistence.pessimisticUpdate(
     ApiAuthActionTypes.ApiAuthUpdateUser,
     {
       // provides an action and the current state of the store
@@ -52,6 +54,62 @@ export class ApiAuthEffects {
       },
 
       onError: (a: ApiAuthUpdateUser, e: any) => {
+        // we don't need to undo the changes on the client side.
+        // we can dispatch an error, or simply log the error here and return `null`
+        console.log('Error :', e);
+        return new ApiAuthError(e);
+      }
+    }
+  );
+
+  @Effect() logout = this.dataPersistence.pessimisticUpdate(
+    ApiAuthActionTypes.ApiAuthLogout,
+    {
+      // provides an action and the current state of the store
+      run: (a: ApiAuthLogout, state: ApiAuthPartialState) => {
+        // update the backend first, and then dispatch an action that will
+        // update the client side
+        return from(
+          this.db.logout().then(
+            (some: any) => {
+              return new ApiAuthSuccess('Logout success');
+            },
+            error => {
+              return new ApiAuthError('Auth User Update Error ' + error);
+            }
+          )
+        );
+      },
+
+      onError: (a: ApiAuthLogout, e: any) => {
+        // we don't need to undo the changes on the client side.
+        // we can dispatch an error, or simply log the error here and return `null`
+        console.log('Error :', e);
+        return new ApiAuthError(e);
+      }
+    }
+  );
+
+  @Effect() login = this.dataPersistence.pessimisticUpdate(
+    ApiAuthActionTypes.ApiAuthLogin,
+    {
+      // provides an action and the current state of the store
+      run: (a: ApiAuthLogin, state: ApiAuthPartialState) => {
+        // update the backend first, and then dispatch an action that will
+        // update the client side
+        return from(
+          this.db.loginEmailPassword(a.credentials).then(
+            (some: any) => {
+              return new ApiAuthSuccess('Logout success');
+            },
+            error => {
+              return new ApiAuthError('Auth User Update Error ' + error);
+            }
+          )
+        );
+      },
+
+      onError: (a: ApiAuthLogin, e: any) => {
         // we don't need to undo the changes on the client side.
         // we can dispatch an error, or simply log the error here and return `null`
         console.log('Error :', e);

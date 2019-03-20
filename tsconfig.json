@@ -36,7 +36,10 @@
       ],
       "@tabularius/database": ["libs/database/src/index.ts"],
       "@tabularius/core/store": ["libs/core/store/src/index.ts"],
-      "@tabularius/core/router-guards": ["libs/core/router-guards/src/index.ts"]
+      "@tabularius/core/router-guards": [
+        "libs/core/router-guards/src/index.ts"
+      ],
+      "@tabularius/modules/app-shell": ["libs/modules/app-shell/src/index.ts"]
     },
     "strict": true
   },

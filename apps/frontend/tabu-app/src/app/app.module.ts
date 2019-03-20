@@ -2,12 +2,10 @@ import { NgModule } from '@angular/core';
 import { CoreModule } from './core/core.module';
 
 import { AppComponent } from './app.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [CoreModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
+  imports: [CoreModule],
   providers: [],
   bootstrap: [AppComponent]
 })

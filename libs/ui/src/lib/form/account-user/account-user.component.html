@@ -35,5 +35,9 @@
   Save
 </button>
 
-<button mat-raised-button (click)="login.emit()">Login</button>
-<button mat-raised-button (click)="logout.emit()">Logout</button>
+<button mat-raised-button *ngIf="user === null" (click)="onlogin()">
+  Login
+</button>
+<button mat-raised-button *ngIf="user != null" (click)="logout.emit()">
+  Logout
+</button>

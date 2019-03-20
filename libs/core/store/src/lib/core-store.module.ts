@@ -8,9 +8,11 @@ import {
 } from './auth/api-auth.reducer';
 import { ApiAuthEffects } from './auth/api-auth.effects';
 import { ApiAuthFacade } from './auth/api-auth.facade';
+import { DatabaseModule } from '@tabularius/database';
 
 @NgModule({
   imports: [
+    DatabaseModule,
     StoreModule.forFeature(APIAUTH_FEATURE_KEY, apiAuthReducer, {
       initialState: apiAuthInitialState
     }),
