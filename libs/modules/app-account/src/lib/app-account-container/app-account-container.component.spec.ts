@@ -3,9 +3,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppAccountContainerComponent } from './app-account-container.component';
 import { Output, Input, EventEmitter, Component } from '@angular/core';
 import { IUser } from '@tabularius/shared/models';
-import { ApiAuthFacade } from '@tabularius/core/store';
 import { ReplaySubject, Subject, of } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { AccountFacade } from '../+state/account.facade';
 
 @Component({ selector: 'tabu-account-user', template: '' })
 class AccountUserStubComponent {
@@ -37,7 +37,7 @@ describe('AppAccountContainerComponent', () => {
       declarations: [AppAccountContainerComponent, AccountUserStubComponent],
       providers: [
         {
-          provide: ApiAuthFacade,
+          provide: AccountFacade,
           useValue: {
             user$
           }
@@ -54,5 +54,9 @@ describe('AppAccountContainerComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  afterEach(() => {
+    onDestroy.next();
   });
 });

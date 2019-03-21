@@ -7,7 +7,8 @@ import { apiAuthQuery } from './api-auth.selectors';
 import {
   ApiAuthLogin,
   ApiAuthLogout,
-  ApiAuthUpdateUser
+  ApiAuthUpdateUser,
+  ApiAuthRedirectLogin
 } from './api-auth.actions';
 import { ICredentials, IUser } from '@tabularius/shared/models';
 
@@ -26,6 +27,10 @@ export class ApiAuthFacade {
 
   logout() {
     this.store.dispatch(new ApiAuthLogout());
+  }
+
+  redirectLogin() {
+    this.store.dispatch(new ApiAuthRedirectLogin());
   }
 
   updateUser(user: IUser) {

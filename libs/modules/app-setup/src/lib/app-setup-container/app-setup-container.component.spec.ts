@@ -18,8 +18,8 @@ describe('AppSetupContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [SetupTaxFormStubComponent],
-      declarations: [AppSetupContainerComponent]
+      imports: [],
+      declarations: [AppSetupContainerComponent, SetupTaxFormStubComponent]
     }).compileComponents();
   }));
 

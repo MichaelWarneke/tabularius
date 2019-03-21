@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Effect, Actions } from '@ngrx/effects';
+import { Effect, Actions, ofType } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/nx';
 
 import { ApiAuthPartialState, APIAUTH_FEATURE_KEY } from './api-auth.reducer';
@@ -12,7 +12,8 @@ import {
   ApiAuthSuccess,
   ApiAuthChanged,
   ApiAuthLogout,
-  ApiAuthLogin
+  ApiAuthLogin,
+  ApiAuthRedirectLogin
 } from './api-auth.actions';
 import { IAuthService } from '@tabularius/database';
 import { defineBase } from '@angular/core/src/render3';
@@ -22,6 +23,7 @@ import { Action } from '@ngrx/store';
 import { of, from, Observable } from 'rxjs';
 
 import * as firebase from 'firebase/app';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class ApiAuthEffects {
@@ -118,9 +120,19 @@ export class ApiAuthEffects {
     }
   );
 
+  @Effect({ dispatch: false })
+  redirectLogin$ = this.actions$.pipe(
+    ofType(
+      ApiAuthActionTypes.ApiAuthRedirectLogin,
+      ApiAuthActionTypes.ApiAuthLogout
+    ),
+    tap(authed => this.router.navigate(['./account']))
+  );
+
   constructor(
     private actions$: Actions,
     private dataPersistence: DataPersistence<ApiAuthPartialState>,
-    private db: IAuthService
+    private db: IAuthService,
+    private router: Router
   ) {}
 }
