@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { QuestionService } from '../services/form-creator.service';
 
 @Component({
   selector: 'app-journal-app-journal-container',
   templateUrl: './app-journal-container.component.html',
-  styleUrls: ['./app-journal-container.component.scss']
+  styleUrls: ['./app-journal-container.component.scss'],
+  providers: [QuestionService]
 })
-export class AppJournalContainerComponent implements OnInit {
+export class AppJournalContainerComponent {
+  questions: any[];
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(service: QuestionService) {
+    this.questions = service.getQuestions();
   }
-
 }
