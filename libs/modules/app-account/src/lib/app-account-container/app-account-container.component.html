@@ -1,7 +1,6 @@
-
+<tabu-app-progress-bar [showProgress]="showProgress$| async"></tabu-app-progress-bar>
 <tabu-account-user
   [user]="user$ | async"
-  [showProgress]="showProgress$| async" 
   (save)="save($event)"
   (login)="login($event)"
   (logout)="logout()"

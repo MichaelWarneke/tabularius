@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AppAccountContainerComponent } from './app-account-container/app-account-container.component';
-import { AccountUserModule } from '@tabularius/ui';
+import { AccountUserModule, ProgressBarModule } from '@tabularius/ui';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import {
@@ -16,7 +16,7 @@ import { AccountFacade } from './+state/account.facade';
 @NgModule({
   imports: [
     CommonModule,
-
+    ProgressBarModule,
     RouterModule.forChild([
       { path: '', pathMatch: 'full', component: AppAccountContainerComponent }
     ]),

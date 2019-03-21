@@ -17,18 +17,12 @@ export class UserModel {
 })
 export class AccountUserComponent implements OnInit {
   _user: IUser | null = null;
-  progressMode: string = 'determinate';
+
   @Output() save = new EventEmitter<IUser>();
   @Output() login = new EventEmitter<any>();
   @Output() logout = new EventEmitter<any>();
-  @Input() set showProgress(val: boolean){
-    if(val){
-      this.progressMode = 'query'
-    } else{
-        this.progressMode = 'determinate'
-    } 
-  };
-  @Input() progressValue: number = 0;
+
+
   @Input()
   set user(item: IUser | null) {
     this._user = item;
