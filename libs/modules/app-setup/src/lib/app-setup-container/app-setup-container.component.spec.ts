@@ -2,8 +2,15 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppSetupContainerComponent } from './app-setup-container.component';
-import { SharedUiModule } from '@tabularius/shared/ui';
-import { SetupTaxFormModule } from '@tabularius/ui';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
+import { ITax } from '@tabularius/shared/models';
+
+@Component({ selector: 'tabu-setup-tax-form', template: '' })
+class SetupTaxFormStubComponent {
+  @Output() saveTax = new EventEmitter<ITax>();
+  @Output() deleteTax = new EventEmitter<string>();
+  @Input() account: ITax | null = null;
+}
 
 describe('AppSetupContainerComponent', () => {
   let component: AppSetupContainerComponent;
@@ -11,7 +18,7 @@ describe('AppSetupContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [SharedUiModule, NoopAnimationsModule, SetupTaxFormModule],
+      imports: [SetupTaxFormStubComponent],
       declarations: [AppSetupContainerComponent]
     }).compileComponents();
   }));
