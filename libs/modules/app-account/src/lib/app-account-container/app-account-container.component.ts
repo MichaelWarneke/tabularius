@@ -11,8 +11,10 @@ import { AccountFacade } from '../+state/account.facade';
 })
 export class AppAccountContainerComponent implements OnInit {
   user$: Observable<IUser | null>;
+  showProgress$: Observable<boolean>;
   constructor(private locStore: AccountFacade) {
     this.user$ = locStore.user$;
+    this.showProgress$ = locStore.loading$;
   }
 
   ngOnInit() {}

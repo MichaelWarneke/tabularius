@@ -8,7 +8,8 @@ import { ApiAuthFacade } from '@tabularius/core/store';
   styleUrls: ['./app-shell-container.component.scss']
 })
 export class AppShellContainerComponent {
-  userDisplayName$: Observable<string | null | undefined> = of(null);
+  userDisplayName$: Observable<string | null | undefined>;
+
   constructor(private store: ApiAuthFacade) {
     this.userDisplayName$ = this.store.userName$;
   }

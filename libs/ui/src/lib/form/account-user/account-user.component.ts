@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { IUser } from '@tabularius/shared/models';
 import { Validators, FormBuilder } from '@angular/forms';
 
@@ -12,13 +12,23 @@ export class UserModel {
 @Component({
   selector: 'tabu-account-user',
   templateUrl: './account-user.component.html',
-  styleUrls: ['./account-user.component.scss']
+  styleUrls: ['./account-user.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AccountUserComponent implements OnInit {
   _user: IUser | null = null;
+  progressMode: string = 'determinate';
   @Output() save = new EventEmitter<IUser>();
   @Output() login = new EventEmitter<any>();
   @Output() logout = new EventEmitter<any>();
+  @Input() set showProgress(val: boolean){
+    if(val){
+      this.progressMode = 'query'
+    } else{
+        this.progressMode = 'determinate'
+    } 
+  };
+  @Input() progressValue: number = 0;
   @Input()
   set user(item: IUser | null) {
     this._user = item;
