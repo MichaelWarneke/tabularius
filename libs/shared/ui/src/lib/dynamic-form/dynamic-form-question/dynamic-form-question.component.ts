@@ -10,10 +10,33 @@ import { QuestionBase } from '../models/question-base';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DynamicFormQuestionComponent {
+  _form: FormGroup | null = null;
   @Input() question: QuestionBase<any> | null = null;
-  @Input() form: FormGroup | null = null;
+  @Input()
+  set form(form: FormGroup | null) {
+    this._form = form;
+    console.warn('set Form');
+    if (this._form) {
+      console.warn('set Form value');
+      this._form.markAsPristine();
+      this._form.markAsUntouched();
+    }
+  }
+  get form() {
+    return this._form;
+  }
   get isValid() {
-    if (this.form && this.question)
+    console.warn('isValid');
+    if (
+      this.form &&
+      this.question &&
+      this.form.controls[this.question.key].touched &&
+      this.form.controls[this.question.key].dirty
+    ) {
+      console.warn('isValid passed');
       return this.form.controls[this.question.key].valid;
+    } else {
+      return true;
+    }
   }
 }
