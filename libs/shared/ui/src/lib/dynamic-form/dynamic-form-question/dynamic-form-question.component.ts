@@ -15,9 +15,7 @@ export class DynamicFormQuestionComponent {
   @Input()
   set form(form: FormGroup | null) {
     this._form = form;
-    console.warn('set Form');
     if (this._form) {
-      console.warn('set Form value');
       this._form.markAsPristine();
       this._form.markAsUntouched();
     }
@@ -26,14 +24,12 @@ export class DynamicFormQuestionComponent {
     return this._form;
   }
   get isValid() {
-    console.warn('isValid');
     if (
       this.form &&
       this.question &&
       this.form.controls[this.question.key].touched &&
       this.form.controls[this.question.key].dirty
     ) {
-      console.warn('isValid passed');
       return this.form.controls[this.question.key].valid;
     } else {
       return true;
