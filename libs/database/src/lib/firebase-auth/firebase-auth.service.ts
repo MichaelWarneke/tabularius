@@ -2,7 +2,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { IAuthService } from '../api/auth.service';
 import { IUser, ICredentials } from '@tabularius/shared/models';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { switchMap, startWith, tap, filter, map } from 'rxjs/operators';
 import { testCredentials } from '../firebase/firebase-key';
 
@@ -41,7 +41,7 @@ export class FirebaseAuthService implements IAuthService {
     );
   }
 
-  async updateAuthUserProfile(user: IUser): Promise<any> {
+  updateAuthUserProfile(user: IUser): Observable<boolean> {
     if (
       user &&
       user.uid &&
@@ -50,23 +50,26 @@ export class FirebaseAuthService implements IAuthService {
       user.email.length > 1
     ) {
       if (this.afAuth.auth.currentUser) {
-        return this.afAuth.auth.currentUser.updateProfile({
-          displayName: user.displayName,
-          photoURL: user.photoURL
-        });
+        this.afAuth.auth.currentUser
+          .updateProfile({
+            displayName: user.displayName,
+            photoURL: user.photoURL
+          })
+          .then(() => of(true), err => throwError(err));
       } else {
-        return Promise.reject('setAuthUserProfile: User not set properly');
+        throwError({ error: 'setAuthUserProfile: User not set properly' });
       }
     } else {
-      return Promise.reject('setAuthUserProfile: User not set properly');
+      throwError({ error: 'setAuthUserProfile: User not set properly' });
     }
+    return of(false);
   }
 
   async loginEmailPassword(credentials: ICredentials): Promise<any> {
     if (credentials.email) {
       return this.afAuth.auth.signInWithEmailAndPassword(
         testCredentials.email,
-      testCredentials.password
+        testCredentials.password
       );
     } else {
       return Promise.reject('No Email Provided');

@@ -2,10 +2,14 @@ import { Injectable } from '@angular/core';
 import { Effect, Actions, ofType } from '@ngrx/effects';
 
 import { AccountPartialState } from './account.reducer';
-import { AccountActionTypes, Login, Logout } from './account.actions';
+import { AccountActionTypes, Login, Logout, Update } from './account.actions';
 import { map, concatMap, switchMap } from 'rxjs/operators';
-import { ApiAuthLogin, ApiAuthLogout } from '@tabularius/core/store';
-import { ICredentials } from '@tabularius/shared/models';
+import {
+  ApiAuthLogin,
+  ApiAuthLogout,
+  ApiAuthUpdateUser
+} from '@tabularius/core/store';
+import { ICredentials, IUser } from '@tabularius/shared/models';
 
 @Injectable()
 export class AccountEffects {
@@ -25,6 +29,15 @@ export class AccountEffects {
     ofType<Logout>(AccountActionTypes.Logout),
     map(() => {
       return new ApiAuthLogout();
+    })
+  );
+
+  @Effect()
+  update$ = this.actions$.pipe(
+    ofType<Update>(AccountActionTypes.Update),
+    map(action => action.user),
+    map((user: IUser) => {
+      return new ApiAuthUpdateUser(user);
     })
   );
 }

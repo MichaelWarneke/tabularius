@@ -37,13 +37,13 @@ export class AccountUserComponent implements OnInit {
 
   ngOnInit() {}
 
-  submit() {
-    /*    if (this._user) {
+  onSave(data: any) {
+    console.warn('onSave :', data);
+    if (data) {
       this.save.emit({
-        ...this.form.value,
-        uid: this._user.uid
+        ...data
       } as IUser);
-    }*/
+    }
   }
 
   onlogin() {

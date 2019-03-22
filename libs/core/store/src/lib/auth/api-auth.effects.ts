@@ -16,13 +16,10 @@ import {
   ApiAuthRedirectLogin
 } from './api-auth.actions';
 import { IAuthService } from '@tabularius/database';
-import { defineBase } from '@angular/core/src/render3';
 import { IUser } from '@tabularius/shared/models';
-import { switchMap, map, catchError, tap } from 'rxjs/operators';
-import { Action } from '@ngrx/store';
-import { of, from, Observable } from 'rxjs';
+import { switchMap, catchError, tap, flatMap } from 'rxjs/operators';
+import { of, from, Observable, throwError } from 'rxjs';
 
-import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 
 @Injectable()
@@ -43,15 +40,12 @@ export class ApiAuthEffects {
       run: (a: ApiAuthUpdateUser, state: ApiAuthPartialState) => {
         // update the backend first, and then dispatch an action that will
         // update the client side
-        return from(
-          this.db.updateAuthUserProfile(a.user).then(
-            (some: any) => {
-              return new ApiAuthChanged(a.user);
-            },
-            error => {
-              return new ApiAuthError('Auth User Update Error ' + error);
-            }
-          )
+        return this.db.updateAuthUserProfile(a.user).pipe(
+          flatMap((res: boolean) => [
+            new ApiAuthChanged(a.user),
+            new ApiAuthSuccess('Update User')
+          ]),
+          catchError(err => throwError(err))
         );
       },
 
@@ -102,7 +96,7 @@ export class ApiAuthEffects {
         return from(
           this.db.loginEmailPassword(a.credentials).then(
             (some: any) => {
-              return new ApiAuthSuccess('Logout success');
+              return new ApiAuthSuccess('Login success');
             },
             error => {
               return new ApiAuthError('Auth User Update Error ' + error);

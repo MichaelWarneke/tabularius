@@ -3,7 +3,8 @@
   [questions]="questions"
   deleteButton="true"
   copyButton="true"
-  [data]="user"
+  [data]="_user"
+  (save)="onSave($event)"
 ></tabu-app-dynamic-form>
 
 <button mat-raised-button *ngIf="user === null" (click)="onlogin()">

@@ -19,11 +19,13 @@ import { QuestionControlService } from '../dynamic-form.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DynamicFormComponent implements OnInit {
+  _data: any | null = null;
   @Input() questions: QuestionBase<any>[] = [];
   @Input() deleteButton = false;
   @Input() copyButton = false;
   @Input()
   set data(data: any | null) {
+    this._data = data;
     if (this.form)
       if (data) {
         this.form.patchValue(data);
@@ -32,20 +34,29 @@ export class DynamicFormComponent implements OnInit {
       }
   }
 
+  get data() {
+    return this._data;
+  }
+
   @Output() save = new EventEmitter<any>();
   @Output() delete = new EventEmitter<any>();
   @Output() copy = new EventEmitter<any>();
 
   form: FormGroup | null = null;
-  payLoad = '';
 
   constructor(private qcs: QuestionControlService) {}
 
   ngOnInit() {
     this.form = this.qcs.toFormGroup(this.questions);
+    if (this.data) {
+      this.form.patchValue(this.data);
+    }
   }
 
   onSubmit() {
-    if (this.form) this.payLoad = JSON.stringify(this.form.value);
+    if (this.form) {
+      this.save.emit(this.form.value);
+      console.warn('onSubmit :', this.form.value);
+    }
   }
 }

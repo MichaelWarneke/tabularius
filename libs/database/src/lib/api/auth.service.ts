@@ -6,7 +6,7 @@ import { IUser, ICredentials } from '@tabularius/shared/models';
 export abstract class IAuthService {
   abstract getAuthUser(): Observable<IUser | null>;
   abstract getAuthUserDisplayName(): Observable<string | undefined | null>;
-  abstract updateAuthUserProfile(user: IUser): Promise<any>;
+  abstract updateAuthUserProfile(user: IUser): Observable<any>;
   abstract loginEmailPassword(credentials: ICredentials): Promise<any>;
   abstract login(): Promise<any>;
   abstract logout(): Promise<any>;
