@@ -1,19 +1,19 @@
 <div [formGroup]="form">
-  <div [ngSwitch]="question.controlType">
+  <div [ngSwitch]="question?.controlType">
     <mat-form-field *ngSwitchCase="'textbox'" class="tabu-full-width">
       <input
-        [formControlName]="question.key"
-        [id]="question.key"
-        [type]="question.type"
+        [formControlName]="question?.key"
+        [id]="question?.key"
+        [type]="question?.type"
         matInput
-        [placeholder]="question.label"
+        [placeholder]="question?.label"
       />
     </mat-form-field>
 
     <mat-form-field *ngSwitchCase="'dropdown'">
-      <mat-label>{{ question.label }}</mat-label>
-      <mat-select [id]="question.key" [formControlName]="question.key">
-        <mat-option *ngFor="let opt of question.options" [value]="opt.key">{{
+      <mat-label>{{ question?.label }}</mat-label>
+      <mat-select [id]="question?.key" [formControlName]="question?.key">
+        <mat-option *ngFor="let opt of question?.options" [value]="opt.key">{{
           opt.value
         }}</mat-option>
       </mat-select>
@@ -21,11 +21,11 @@
 
     <mat-form-field *ngSwitchCase="'datepicker'" class="tabu-full-width">
       <input
-        [formControlName]="question.key"
-        [id]="question.key"
-        [type]="question.type"
+        [formControlName]="question?.key"
+        [id]="question?.key"
+        [type]="question?.type"
         matInput
-        [placeholder]="question.label"
+        [placeholder]="question?.label"
         [matDatepicker]="picker"
       />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -34,6 +34,6 @@
   </div>
 
   <div class="errorMessage" *ngIf="!isValid">
-    {{ question.label }} is required
+    {{ question?.label }} is required
   </div>
 </div>
