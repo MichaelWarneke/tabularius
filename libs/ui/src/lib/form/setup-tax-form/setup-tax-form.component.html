@@ -1,48 +1,6 @@
-<form [formGroup]="taxForm" class="account-form">
-  <mat-form-field>
-    <input
-      formControlName="id"
-      type="text"
-      matInput
-      placeholder="ID"
-      required
-    />
-  </mat-form-field>
-
-  <mat-form-field class="tabu-full-width">
-    <input
-      formControlName="taxCode"
-      type="text"
-      matInput
-      placeholder="Tax Code"
-      required
-    />
-  </mat-form-field>
-
-  <mat-form-field class="tabu-full-width">
-    <input
-      formControlName="taxDescription"
-      type="text"
-      matInput
-      placeholder="Tax Description"
-      required
-    />
-  </mat-form-field>
-
-  <mat-form-field class="tabu-full-width">
-    <input
-      formControlName="taxPercentageRate"
-      type="text"
-      matInput
-      placeholder="Tax Percentage"
-      required
-    />
-  </mat-form-field>
-</form>
-<div class="form-button-row">
-  <button mat-raised-button>New</button>
-  <button [disabled]="taxForm.invalid" mat-raised-button>Save</button>
-  <button [disabled]="taxForm.invalid" mat-raised-button color="warn">
-    Delete
-  </button>
-</div>
+<h1>Tax Form</h1>
+<tabu-app-dynamic-form
+  [questions]="questions"
+  deleteButton="true"
+  copyButton="true"
+></tabu-app-dynamic-form>

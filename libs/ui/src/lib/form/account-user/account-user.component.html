@@ -1,39 +1,10 @@
-<form [formGroup]="form" class="user-form">
-  <mat-form-field class="tabu-full-width">
-    <input formControlName="uid" type="text" matInput placeholder="ID" />
-  </mat-form-field>
-  <br />
-  <mat-form-field class="tabu-full-width">
-    <input
-      formControlName="email"
-      type="text"
-      matInput
-      placeholder="Email"
-      required
-    />
-  </mat-form-field>
-  <br />
-  <mat-form-field class="tabu-full-width">
-    <input
-      formControlName="displayName"
-      type="text"
-      matInput
-      placeholder="Display Name"
-    />
-  </mat-form-field>
-  <br />
-  <mat-form-field class="tabu-full-width">
-    <input
-      formControlName="photoURL"
-      type="text"
-      matInput
-      placeholder="Photo URL"
-    />
-  </mat-form-field>
-</form>
-<button [disabled]="form.invalid" mat-raised-button (click)="submit()">
-  Save
-</button>
+<h1>Account Form</h1>
+<tabu-app-dynamic-form
+  [questions]="questions"
+  deleteButton="true"
+  copyButton="true"
+  [data]="user"
+></tabu-app-dynamic-form>
 
 <button mat-raised-button *ngIf="user === null" (click)="onlogin()">
   Login

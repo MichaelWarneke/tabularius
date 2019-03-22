@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { DynamicFormModule } from '@tabularius/ui';
+import { JournalEntryFormModule } from '@tabularius/ui';
 import { AppJournalContainerComponent } from './app-journal-container/app-journal-container.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    DynamicFormModule,
+    JournalEntryFormModule,
     RouterModule.forChild([
       { path: '', pathMatch: 'full', component: AppJournalContainerComponent }
     ])

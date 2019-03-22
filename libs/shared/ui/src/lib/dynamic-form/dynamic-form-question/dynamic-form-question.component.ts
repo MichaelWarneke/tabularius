@@ -1,11 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { QuestionBase } from '../models/question-base';
 
 @Component({
   selector: 'tabu-app-question',
-  templateUrl: './dynamic-form-question.component.html'
+  templateUrl: './dynamic-form-question.component.html',
+  styleUrls: ['./dynamic-form-question.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DynamicFormQuestionComponent {
   @Input() question: QuestionBase<any> | null = null;

@@ -4,39 +4,36 @@ import {
   DropdownQuestion,
   QuestionBase,
   TextboxQuestion
-} from '@tabularius/ui';
-
+} from '@tabularius/shared/ui';
 @Injectable()
 export class QuestionService {
   // TODO: get from a remote source of question metadata
   // TODO: make asynchronous
   getQuestions() {
     const questions: QuestionBase<any>[] = [
-      new DropdownQuestion({
-        key: 'brave',
-        label: 'Bravery Rating',
-        options: [
-          { key: 'solid', value: 'Solid' },
-          { key: 'great', value: 'Great' },
-          { key: 'good', value: 'Good' },
-          { key: 'unproven', value: 'Unproven' }
-        ],
-        order: 3
-      }),
-
       new TextboxQuestion({
-        key: 'firstName',
-        label: 'First name',
-        value: 'Bombasto',
+        key: 'uid',
+        label: 'ID',
         required: true,
         order: 1
       }),
 
       new TextboxQuestion({
-        key: 'emailAddress',
+        key: 'email',
         label: 'Email',
         type: 'email',
+        required: true,
         order: 2
+      }),
+      new TextboxQuestion({
+        key: 'displayName',
+        label: 'Display Name',
+        order: 3
+      }),
+      new TextboxQuestion({
+        key: 'photoURL',
+        label: 'Photo URL',
+        order: 4
       })
     ];
 

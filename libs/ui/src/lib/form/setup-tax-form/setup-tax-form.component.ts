@@ -1,53 +1,39 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  Input,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { ITax } from '@tabularius/shared/models';
-
-export class TaxModel implements ITax {
-  id = ['', Validators.required];
-  taxCode = ['', Validators.required];
-  taxDescription = ['', Validators.required];
-  taxPercentageRate = [null, Validators.required];
-  basGrossAmount = [''];
-  basTaxAmount = [''];
-  paymentSummaryType = [''];
-  grossAmountPayment = [''];
-  taxAmountPayment = [''];
-}
+import { QuestionService } from './services/form-creator.service';
 
 @Component({
   selector: 'tabu-setup-tax-form',
   templateUrl: './setup-tax-form.component.html',
-  styleUrls: ['./setup-tax-form.component.scss']
+  styleUrls: ['./setup-tax-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [QuestionService]
 })
 export class SetupTaxFormComponent implements OnInit {
   @Output() saveTax = new EventEmitter<ITax>();
   @Output() deleteTax = new EventEmitter<string>();
-  @Input()
-  set account(tax: ITax) {
-    if (tax) {
-      this.taxForm.setValue(tax);
-    }
+  @Input() tax: ITax | null = null;
+
+  questions: any[];
+
+  constructor(service: QuestionService) {
+    this.questions = service.getQuestions();
   }
-
-  taxForm = this.fb.group(new TaxModel());
-
-  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {}
 
-  onNew() {
-    this.taxForm.reset();
-  }
+  onCopy() {}
 
-  onDelete() {
-    const id = this.taxForm.get('id');
-    if (id) {
-      this.deleteTax.emit(id.value as string);
-    }
-  }
+  onDelete() {}
 
   onSubmit() {
     console.log('Submit clicked');
-    this.saveTax.emit(this.taxForm.value as ITax);
   }
 }

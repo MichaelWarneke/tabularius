@@ -1,16 +1,11 @@
-import { Component } from '@angular/core';
-import { QuestionService } from '../services/form-creator.service';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-journal-app-journal-container',
   templateUrl: './app-journal-container.component.html',
   styleUrls: ['./app-journal-container.component.scss'],
-  providers: [QuestionService]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppJournalContainerComponent {
-  questions: any[];
-
-  constructor(service: QuestionService) {
-    this.questions = service.getQuestions();
-  }
+  constructor() {}
 }

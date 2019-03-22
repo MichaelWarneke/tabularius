@@ -11,6 +11,12 @@
       <button mat-raised-button type="submit" [disabled]="!form.valid">
         Save
       </button>
+      <button mat-raised-button *ngIf="deleteButton" [disabled]="!form.valid">
+        Delete
+      </button>
+      <button mat-raised-button *ngIf="copyButton" [disabled]="!form.valid">
+        Copy
+      </button>
     </div>
   </form>
 
