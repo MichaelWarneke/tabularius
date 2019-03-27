@@ -3,7 +3,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TabuAppSidenavComponent } from './tabu-app-sidenav.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { SharedUiModule } from '@tabularius/shared/ui';
+import { SharedModule } from '@tabularius/shared/ui';
 
 describe('NavComponent', () => {
   let component: TabuAppSidenavComponent;
@@ -12,7 +12,7 @@ describe('NavComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TabuAppSidenavComponent],
-      imports: [NoopAnimationsModule, RouterTestingModule, SharedUiModule],
+      imports: [NoopAnimationsModule, RouterTestingModule, SharedModule],
       providers: []
     }).compileComponents();
   }));

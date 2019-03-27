@@ -23,7 +23,7 @@ export class TabuAppSidenavComponent implements OnInit {
 
   @ViewChild('drawer') sidenav?: MatSidenav;
   @Input() userName: string | null | undefined;
-
+  @Input() isAuth = false;
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 

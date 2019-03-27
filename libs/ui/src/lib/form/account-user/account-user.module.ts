@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { AccountUserComponent } from './account-user.component';
-import { SharedUiModule, DynamicFormModule } from '@tabularius/shared/ui';
+import { SharedModule } from '@tabularius/shared/ui';
+import { DynamicFormModule } from '@tabularius/shared/dynamic-form';
 
 @NgModule({
   declarations: [AccountUserComponent],
-  imports: [SharedUiModule, DynamicFormModule],
+  imports: [SharedModule, DynamicFormModule],
   exports: [AccountUserComponent]
 })
 export class AccountUserModule {}

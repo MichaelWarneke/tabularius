@@ -1,6 +1,6 @@
 <h1>Tax Form</h1>
-<tabu-app-dynamic-form
-  [questions]="questions"
-  deleteButton="true"
-  copyButton="true"
-></tabu-app-dynamic-form>
+<tabu-dynamic-form
+  [formModel]="formModel"
+  [data]="_user"
+  (saveEntry)="onSave($event)"
+></tabu-dynamic-form>

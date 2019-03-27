@@ -1,0 +1,10 @@
+<ng-container [formGroup]="group">
+  <button
+    class="form-button"
+    mat-raised-button
+    [color]="color"
+    (click)="onClicked.emit()"
+  >
+    {{ text }}
+  </button>
+</ng-container>

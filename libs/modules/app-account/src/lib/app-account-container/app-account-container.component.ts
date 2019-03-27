@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiAuthFacade } from '@tabularius/core/store';
+
 import { Observable } from 'rxjs';
-import { IUser, ICredentials } from '@tabularius/shared/models';
+import { IUser } from '@tabularius/shared/models';
 import { AccountFacade } from '../+state/account.facade';
 
 @Component({
@@ -23,11 +23,5 @@ export class AppAccountContainerComponent implements OnInit {
     this.locStore.update(user);
   }
 
-  login(credentials: ICredentials) {
-    this.locStore.login(credentials);
-  }
 
-  logout() {
-    this.locStore.logout();
-  }
 }

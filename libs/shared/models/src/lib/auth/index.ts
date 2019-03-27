@@ -1,1 +1,6 @@
-export { IUser, ICredentials } from './user';
+export {
+  IUser,
+  IUserAbstract,
+  ICredentials,
+  ICredentialsAbstract
+} from './user';

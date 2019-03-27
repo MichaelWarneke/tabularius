@@ -38,9 +38,6 @@
     "shared-models": {
       "tags": ["data"]
     },
-    "shared-ui": {
-      "tags": ["ui"]
-    },
     "shared-web-core": {
       "tags": ["web-app"]
     },
@@ -61,6 +58,12 @@
     },
     "modules-app-shell": {
       "tags": ["module"]
+    },
+    "shared-ui-dynamic-form": {
+      "tags": ["dynamic-form"]
+    },
+    "shared-ui-shared": {
+      "tags": ["shared-ui"]
     }
   }
 }

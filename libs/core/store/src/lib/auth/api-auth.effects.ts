@@ -120,7 +120,7 @@ export class ApiAuthEffects {
       ApiAuthActionTypes.ApiAuthRedirectLogin,
       ApiAuthActionTypes.ApiAuthLogout
     ),
-    tap(authed => this.router.navigate(['./account']))
+    tap(authed => this.router.navigate(['./account/login']))
   );
 
   constructor(

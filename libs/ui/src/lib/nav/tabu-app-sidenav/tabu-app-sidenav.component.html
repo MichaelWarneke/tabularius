@@ -67,17 +67,10 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span i18n>TABULARIUS</span> <span>{{ userName }}</span>
-      <button
-        type="button"
-        routerLink="/account"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-      >
-        <mat-icon aria-label="Side nav toggle icon">account_circle</mat-icon>
-      </button>
+      <span i18n>TABULARIUS</span> <span>{{ userName }} {{ isAuth }}</span>
+      <tabu-account-menu [isAuth]="isAuth"></tabu-account-menu>
     </mat-toolbar>
-    
+
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>

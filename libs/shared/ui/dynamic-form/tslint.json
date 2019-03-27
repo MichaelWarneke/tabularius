@@ -1,0 +1,7 @@
+{
+  "extends": "../../../../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", "tabuDynamicForm", "camelCase"],
+    "component-selector": [true, "element", "tabu-dynamic-form", "kebab-case"]
+  }
+}

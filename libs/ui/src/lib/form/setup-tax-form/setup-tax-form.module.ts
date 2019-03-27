@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
-import { SharedUiModule, DynamicFormModule } from '@tabularius/shared/ui';
+import { SharedModule } from '@tabularius/shared/ui';
+import { DynamicFormModule } from '@tabularius/shared/dynamic-form';
 import { SetupTaxFormComponent } from './setup-tax-form.component';
 
 @NgModule({
   declarations: [SetupTaxFormComponent],
-  imports: [SharedUiModule, DynamicFormModule],
+  imports: [SharedModule, DynamicFormModule],
   exports: [SetupTaxFormComponent]
 })
 export class SetupTaxFormModule {}

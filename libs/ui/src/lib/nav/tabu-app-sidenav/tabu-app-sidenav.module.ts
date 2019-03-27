@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { TabuAppSidenavComponent } from './tabu-app-sidenav.component';
-import { SharedUiModule } from '@tabularius/shared/ui';
+import { SharedModule } from '@tabularius/shared/ui';
 import { RouterModule } from '@angular/router';
+import { AccountMenuModule } from '../account-menu';
 
 @NgModule({
   declarations: [TabuAppSidenavComponent],
-  imports: [SharedUiModule, RouterModule],
+  imports: [SharedModule, RouterModule, AccountMenuModule],
   exports: [TabuAppSidenavComponent]
 })
 export class TabuAppSidenavModule {}

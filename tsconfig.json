@@ -28,7 +28,6 @@
       ],
       "@tabularius/modules/app-setup": ["libs/modules/app-setup/src/index.ts"],
       "@tabularius/shared/models": ["libs/shared/models/src/index.ts"],
-      "@tabularius/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@tabularius/shared/web-core": ["libs/shared/web-core/src/index.ts"],
       "@tabularius/shared/services": ["libs/shared/services/src/index.ts"],
       "@tabularius/modules/app-account": [
@@ -39,7 +38,11 @@
       "@tabularius/core/router-guards": [
         "libs/core/router-guards/src/index.ts"
       ],
-      "@tabularius/modules/app-shell": ["libs/modules/app-shell/src/index.ts"]
+      "@tabularius/modules/app-shell": ["libs/modules/app-shell/src/index.ts"],
+      "@tabularius/shared/dynamic-form": [
+        "libs/shared/ui/dynamic-form/src/index.ts"
+      ],
+      "@tabularius/shared/ui": ["libs/shared/ui/shared/src/index.ts"]
     },
     "strict": true
   },

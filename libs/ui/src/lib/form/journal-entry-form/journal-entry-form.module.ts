@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { JournalEntryFormComponent } from './journal-entry-form.component';
-import { SharedUiModule } from '@tabularius/shared/ui';
-import { DynamicFormModule } from '@tabularius/shared/ui';
+import { SharedModule } from '@tabularius/shared/ui';
+import { DynamicFormModule } from '@tabularius/shared/dynamic-form';
 
 @NgModule({
   declarations: [JournalEntryFormComponent],
-  imports: [SharedUiModule, DynamicFormModule],
+  imports: [SharedModule, DynamicFormModule],
   exports: [JournalEntryFormComponent]
 })
 export class JournalEntryFormModule {}

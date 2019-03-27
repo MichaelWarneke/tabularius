@@ -1,0 +1,29 @@
+<form [formGroup]="form">
+  <ng-container
+    *ngFor="let val of formlist"
+    dynamicField
+    [val]="val"
+    [group]="form"
+  ></ng-container>
+</form>
+
+<tabu-dynamic-form-button
+  *ngIf="formModel?.submitButtonText"
+  [text]="formModel?.submitButtonText"
+  [group]="form"
+  (onClicked)="onSave()"
+></tabu-dynamic-form-button>
+<tabu-dynamic-form-button
+  *ngIf="formModel?.resetButtonText"
+  color="accent"
+  [text]="formModel?.resetButtonText"
+  [group]="form"
+  (onClicked)="onReset()"
+></tabu-dynamic-form-button>
+<tabu-dynamic-form-button
+  *ngIf="formModel?.deleteButtonText"
+  color="warn"
+  [text]="formModel?.deleteButtonText"
+  [group]="form"
+  (onClicked)="onDelete()"
+></tabu-dynamic-form-button>

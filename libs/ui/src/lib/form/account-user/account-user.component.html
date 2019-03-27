@@ -1,15 +1,7 @@
 <h1>Account Form</h1>
-<tabu-app-dynamic-form
-  [questions]="questions"
-  deleteButton="true"
-  copyButton="true"
+<tabu-dynamic-form
+  [formModel]="formModel"
   [data]="_user"
-  (save)="onSave($event)"
-></tabu-app-dynamic-form>
+  (saveEntry)="onSave($event)"
+></tabu-dynamic-form>
 
-<button mat-raised-button *ngIf="user === null" (click)="onlogin()">
-  Login
-</button>
-<button mat-raised-button *ngIf="user != null" (click)="logout.emit()">
-  Logout
-</button>
