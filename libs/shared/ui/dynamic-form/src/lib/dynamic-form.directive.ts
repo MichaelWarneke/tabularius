@@ -4,18 +4,20 @@ import {
   Directive,
   Input,
   OnInit,
-  ViewContainerRef,
-} from "@angular/core";
-import { FormGroup } from "@angular/forms";
-import { InputComponent, DatepickerComponent } from "./templates";
+  ViewContainerRef
+} from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import {
+  InputComponent,
+  DatepickerComponent,
+  CheckboxComponent,
+  SelectComponent,
+  RadioButtonComponent
+} from './templates';
 import { FormControlTextbox } from './models';
 
-const componentMapper = {
-  'input': InputComponent,
-  'datepicker': DatepickerComponent
-};
 @Directive({
-  selector: "[dynamicField]"
+  selector: '[dynamicField]'
 })
 export class DynamicFormDirective implements OnInit {
   @Input() val: FormControlTextbox | null = null;
@@ -26,13 +28,26 @@ export class DynamicFormDirective implements OnInit {
     private container: ViewContainerRef
   ) {}
   ngOnInit() {
-    if(this.val && this.group) {
+    if (this.val && this.group) {
       let factory;
-      switch(this.val.controlType) {
-        case 'input': factory = this.resolver.resolveComponentFactory(InputComponent); break;
-        case 'datepicker': factory = this.resolver.resolveComponentFactory(DatepickerComponent); break;
+      switch (this.val.controlType) {
+        case 'input':
+          factory = this.resolver.resolveComponentFactory(InputComponent);
+          break;
+        case 'datepicker':
+          factory = this.resolver.resolveComponentFactory(DatepickerComponent);
+          break;
+        case 'checkbox':
+          factory = this.resolver.resolveComponentFactory(CheckboxComponent);
+          break;
+        case 'select':
+          factory = this.resolver.resolveComponentFactory(SelectComponent);
+          break;
+        case 'radio-button':
+          factory = this.resolver.resolveComponentFactory(RadioButtonComponent);
+          break;
       }
-      if(factory) {
+      if (factory) {
         this.componentRef = this.container.createComponent(factory);
         this.componentRef.instance.val = this.val;
         this.componentRef.instance.group = this.group;

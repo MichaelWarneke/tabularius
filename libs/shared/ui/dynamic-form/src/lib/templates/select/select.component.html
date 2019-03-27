@@ -1,0 +1,7 @@
+<mat-form-field class="tabu-select" [formGroup]="group">
+  <mat-select [placeholder]="val?.label" [formControlName]="val?.key">
+    <mat-option *ngFor="let item of val?.options" [value]="item">{{
+      item
+    }}</mat-option>
+  </mat-select>
+</mat-form-field>

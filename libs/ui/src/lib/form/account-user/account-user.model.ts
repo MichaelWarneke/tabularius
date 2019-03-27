@@ -10,6 +10,12 @@ export class UserFormModel implements IUserAbstract {
   email = new FormControlTextbox('', [Validators.required]);
   displayName = new FormControlTextbox('', [Validators.required]);
   photoURL = new FormControlTextbox('', [Validators.required]);
+  constructor() {
+    this.uid.label = 'User ID';
+    this.email.label = 'Email';
+    this.displayName.label = 'User Name';
+    this.photoURL.label = 'Photo URL';
+  }
 }
 
 export class FormSetup {

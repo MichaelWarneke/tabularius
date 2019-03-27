@@ -13,7 +13,8 @@ import {
   MatCheckboxModule,
   MatSelectModule,
   MatProgressBarModule,
-  MatMenuModule
+  MatMenuModule,
+  MatRadioModule
 } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -36,7 +37,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatCheckboxModule,
     MatSelectModule,
     MatProgressBarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatRadioModule
   ],
   exports: [
     LayoutModule,
@@ -54,7 +56,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatCheckboxModule,
     MatSelectModule,
     MatProgressBarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatRadioModule
   ],
   providers: [MatDatepickerModule]
 })

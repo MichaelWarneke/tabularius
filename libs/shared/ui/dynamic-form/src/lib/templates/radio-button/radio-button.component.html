@@ -1,0 +1,11 @@
+<div class="tabu-radio-button-container" [formGroup]="group">
+  <label class="tabu-radio-label">{{ val?.label }}:</label>
+  <mat-radio-group [formControlName]="val?.key">
+    <mat-radio-button
+      class="tabu-radio-button"
+      *ngFor="let item of val?.options"
+      [value]="item"
+      >{{ item }}</mat-radio-button
+    >
+  </mat-radio-group>
+</div>

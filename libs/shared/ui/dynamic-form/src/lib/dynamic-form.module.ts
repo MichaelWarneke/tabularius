@@ -7,6 +7,9 @@ import {
   DatepickerComponent,
   FormButtonComponent
 } from './templates';
+import { SelectComponent } from './templates/select/select.component';
+import { CheckboxComponent } from './templates/checkbox/checkbox.component';
+import { RadioButtonComponent } from './templates/radio-button/radio-button.component';
 
 @NgModule({
   imports: [SharedModule],
@@ -15,9 +18,18 @@ import {
     DynamicFormComponent,
     InputComponent,
     DatepickerComponent,
-    FormButtonComponent
+    FormButtonComponent,
+    SelectComponent,
+    CheckboxComponent,
+    RadioButtonComponent
   ],
   exports: [DynamicFormComponent],
-  entryComponents: [InputComponent, DatepickerComponent]
+  entryComponents: [
+    InputComponent,
+    DatepickerComponent,
+    SelectComponent,
+    CheckboxComponent,
+    RadioButtonComponent
+  ]
 })
 export class DynamicFormModule {}
