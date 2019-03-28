@@ -26,7 +26,7 @@ import {
 } from './models';
 
 @Directive({
-  selector: '[dynamicField]'
+  selector: '[tabuDynamicFormField]'
 })
 export class DynamicFormDirective implements OnInit {
   @Input() control: FormControlBase | FormArray | null = null;

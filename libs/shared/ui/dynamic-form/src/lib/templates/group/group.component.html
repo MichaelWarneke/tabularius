@@ -1,7 +1,7 @@
 <form [formGroup]="form">
   <ng-container
     *ngFor="let control of formlist"
-    dynamicField
+    tabuDynamicFormField
     [control]="control"
     [group]="form"
   ></ng-container>
