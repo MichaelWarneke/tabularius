@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControlSelect } from '../../models';
-import { FormGroup } from '@angular/forms';
+import { BaseComponent } from '../base.component';
 
 @Component({
   selector: 'tabu-dynamic-form-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss']
 })
-export class SelectComponent {
+export class SelectComponent extends BaseComponent {
   control: FormControlSelect | null = null;
-  group: FormGroup | null = null;
-
-  constructor() {}
+  constructor() {
+    super();
+  }
 }

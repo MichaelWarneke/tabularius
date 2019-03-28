@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { FormControlTextbox } from '../../models';
+import { Component } from '@angular/core';
+import { FormControlDate } from '../../models';
 import { BaseComponent } from '../base.component';
 
 @Component({
@@ -9,8 +8,7 @@ import { BaseComponent } from '../base.component';
   styleUrls: ['./datepicker.component.scss']
 })
 export class DatepickerComponent extends BaseComponent {
-  control: FormControlTextbox | null = null;
-  group: FormGroup | null = null;
+  control: FormControlDate | null = null;
 
   constructor() {
     super();

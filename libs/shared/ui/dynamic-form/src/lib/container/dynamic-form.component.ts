@@ -14,7 +14,7 @@ export class DynamicFormComponent implements OnInit {
   @Input()
   set data(data: any) {
     this._data = data;
-    this.updateData(data);
+    this.updateFormData(data);
   }
   get data() {
     return this._data;
@@ -28,24 +28,13 @@ export class DynamicFormComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    console.log('Before :', this.formModel.model);
-    this.form = this.convertModel(this.formModel.model);
-    //this.form = new FormGroup(this.formModel.model);
-    console.log('After');
-    /*    if (this.formModel && this.formModel.model) {
-      this.form = this.fb.group(this.formModel.model);
-      if (this.formModel.entryModel) {
-        this.form.entries = this.fb.array([]);
-      }
-    }
-*/ this.updateData(
-      this.data
-    );
+    if (this.formModel) this.form = this.convertModel(this.formModel.model);
+
+    this.updateFormData(this.data);
   }
 
   convertModel(model: any): FormGroup {
     const form: FormGroup = new FormGroup({});
-    console.log('model :', model);
     Object.keys(model).forEach(key => {
       const control = model[key];
       if (control instanceof FormControlBase) {
@@ -57,9 +46,8 @@ export class DynamicFormComponent implements OnInit {
           formArray.push(formGroup);
           form.addControl(key, formArray);
         }
-        console.log(key, ' IT IS Array :', control);
       } else {
-        console.log(key, ' IT IS NOT :', control);
+        console.warn(key, ' Unknown FormControl :', control);
       }
       control.key = key;
     });
@@ -81,7 +69,7 @@ export class DynamicFormComponent implements OnInit {
     if (this.form) this.deleteEntry.emit(this.form.value);
   }
 
-  updateData(data: any) {
+  updateFormData(data: any) {
     if (this.form) {
       if (this.data) this.form.patchValue(this.data);
     }

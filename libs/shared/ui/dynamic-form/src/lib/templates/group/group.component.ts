@@ -26,7 +26,5 @@ export class GroupComponent implements OnInit {
         this.formlist.push(control);
       }
     });
-    console.warn('group form :', this.form);
-    console.warn('group formlist :', this.formlist);
   }
 }

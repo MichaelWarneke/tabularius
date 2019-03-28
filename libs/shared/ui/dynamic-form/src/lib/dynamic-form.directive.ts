@@ -24,6 +24,7 @@ import {
   FormControlArray,
   FormControlBase
 } from './models';
+import { BaseComponent } from './templates/base.component';
 
 @Directive({
   selector: '[tabuDynamicFormField]'
@@ -41,22 +42,34 @@ export class DynamicFormDirective implements OnInit {
       let factory;
       switch (this.control.constructor) {
         case FormControlTextbox:
-          factory = this.resolver.resolveComponentFactory(InputComponent);
+          factory = this.resolver.resolveComponentFactory<BaseComponent>(
+            InputComponent
+          );
           break;
         case FormControlDate:
-          factory = this.resolver.resolveComponentFactory(DatepickerComponent);
+          factory = this.resolver.resolveComponentFactory<BaseComponent>(
+            DatepickerComponent
+          );
           break;
         case FormControlCheckbox:
-          factory = this.resolver.resolveComponentFactory(CheckboxComponent);
+          factory = this.resolver.resolveComponentFactory<BaseComponent>(
+            CheckboxComponent
+          );
           break;
         case FormControlSelect:
-          factory = this.resolver.resolveComponentFactory(SelectComponent);
+          factory = this.resolver.resolveComponentFactory<BaseComponent>(
+            SelectComponent
+          );
           break;
         case FormControlRadioButton:
-          factory = this.resolver.resolveComponentFactory(RadioButtonComponent);
+          factory = this.resolver.resolveComponentFactory<BaseComponent>(
+            RadioButtonComponent
+          );
           break;
         case FormArray:
-          factory = this.resolver.resolveComponentFactory(ArrayComponent);
+          factory = this.resolver.resolveComponentFactory<BaseComponent>(
+            ArrayComponent
+          );
           console.warn('Array found :', this.control);
           break;
         default:

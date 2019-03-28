@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { FormControlCheckbox } from '../../models';
-import { FormGroup } from '@angular/forms';
+import { BaseComponent } from '../base.component';
 
 @Component({
   selector: 'tabu-dynamic-form-checkbox',
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss']
 })
-export class CheckboxComponent {
+export class CheckboxComponent extends BaseComponent {
   control: FormControlCheckbox | null = null;
-  group: FormGroup | null = null;
 
-  constructor() {}
+  constructor() {
+    super();
+  }
 }

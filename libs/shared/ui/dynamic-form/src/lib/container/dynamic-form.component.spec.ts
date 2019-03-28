@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DynamicFormComponent } from './dynamic-form.component';
+import { FormBuilder } from '@angular/forms';
+import { SharedModule } from '@tabularius/shared/ui';
+import {
+  GroupStubComponent,
+  FormButtonStubComponent
+} from '../templates/test-stub.components';
 
 describe('DynamicFormComponent', () => {
   let component: DynamicFormComponent;
@@ -8,9 +14,14 @@ describe('DynamicFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DynamicFormComponent ]
-    })
-    .compileComponents();
+      imports: [SharedModule],
+      declarations: [
+        DynamicFormComponent,
+        GroupStubComponent,
+        FormButtonStubComponent
+      ],
+      providers: [FormBuilder]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

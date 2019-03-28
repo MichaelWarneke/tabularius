@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
 import { FormControlTextbox } from '../../models';
 import { BaseComponent } from '../base.component';
 
@@ -9,6 +8,7 @@ import { BaseComponent } from '../base.component';
   styleUrls: ['./input.component.scss']
 })
 export class InputComponent extends BaseComponent {
+  control: FormControlTextbox | null = null;
   constructor() {
     super();
   }

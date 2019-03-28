@@ -1,23 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormArray } from '@angular/forms';
-import { FormControlBase, FormControlArray } from '../../models';
+import { Component } from '@angular/core';
+import { FormArray } from '@angular/forms';
+import { FormControlArray } from '../../models';
+import { BaseComponent } from '../base.component';
 
 @Component({
   selector: 'tabu-dynamic-form-array',
   templateUrl: './array.component.html',
   styleUrls: ['./array.component.scss']
 })
-export class ArrayComponent implements OnInit {
+export class ArrayComponent extends BaseComponent {
   control: FormControlArray | null = null;
-  group: FormGroup | null = null;
 
   //TODO
   key = 'entries';
-  constructor() {}
-
-  ngOnInit() {
-    console.log('array control :', this.control);
-    console.log('array nested form :', this.getNestedForm());
+  constructor() {
+    super();
   }
 
   getNestedForm(): FormArray | null {
