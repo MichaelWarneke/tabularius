@@ -3,6 +3,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SetupTaxFormComponent } from './setup-tax-form.component';
 import { SharedModule } from '@tabularius/shared/ui';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('SetupTaxFormComponent', () => {
   let component: SetupTaxFormComponent;
@@ -11,7 +12,8 @@ describe('SetupTaxFormComponent', () => {
     TestBed.configureTestingModule({
       imports: [NoopAnimationsModule, SharedModule],
       declarations: [SetupTaxFormComponent],
-      providers: []
+      providers: [],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 

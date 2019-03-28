@@ -5,19 +5,13 @@ import { readFirst } from '@nrwl/nx/testing';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule, Store } from '@ngrx/store';
 
-import { NxModule } from '@nrwl/nx';
-
 import { AccountEffects } from './account.effects';
 import { AccountFacade } from './account.facade';
 
 import { accountQuery } from './account.selectors';
-import { LoadAccount, AccountLoaded } from './account.actions';
-import {
-  AccountState,
-  Entity,
-  initialState,
-  accountReducer
-} from './account.reducer';
+import { Login, Logout, Update, Success } from './account.actions';
+import { AccountState, initialState, accountReducer } from './account.reducer';
+import { ICredentials, IUser } from '@tabularius/shared/models';
 
 interface TestSchema {
   account: AccountState;
@@ -26,14 +20,8 @@ interface TestSchema {
 describe('AccountFacade', () => {
   let facade: AccountFacade;
   let store: Store<TestSchema>;
-  let createAccount;
 
-  beforeEach(() => {
-    createAccount = (id: string, name = ''): Entity => ({
-      id,
-      name: name || `name-${id}`
-    });
-  });
+  beforeEach(() => {});
 
   describe('used in NgModule', () => {
     beforeEach(() => {
@@ -48,7 +36,6 @@ describe('AccountFacade', () => {
 
       @NgModule({
         imports: [
-          NxModule.forRoot(),
           StoreModule.forRoot({}),
           EffectsModule.forRoot([]),
           CustomFeatureModule
@@ -64,21 +51,27 @@ describe('AccountFacade', () => {
     /**
      * The initially generated facade::loadAll() returns empty array
      */
-    it('loadAll() should return empty list with loaded == true', async done => {
+    it('login() should return null user with loading == true', async done => {
       try {
-        let list = await readFirst(facade.allAccount$);
-        let isLoaded = await readFirst(facade.loaded$);
+        let loading = await readFirst(facade.loading$);
 
-        expect(list.length).toBe(0);
-        expect(isLoaded).toBe(false);
+        expect(loading).toBe(false);
 
-        facade.loadAll();
+        const credentials: ICredentials = {
+          email: 'emailTest',
+          password: 'passTest'
+        };
+        facade.login(credentials);
 
-        list = await readFirst(facade.allAccount$);
-        isLoaded = await readFirst(facade.loaded$);
+        loading = await readFirst(facade.loading$);
 
-        expect(list.length).toBe(0);
-        expect(isLoaded).toBe(true);
+        expect(loading).toBe(true);
+
+        store.dispatch(new Success());
+
+        loading = await readFirst(facade.loading$);
+
+        expect(loading).toBe(false);
 
         done();
       } catch (err) {
@@ -86,26 +79,48 @@ describe('AccountFacade', () => {
       }
     });
 
-    /**
-     * Use `AccountLoaded` to manually submit list for state management
-     */
-    it('allAccount$ should return the loaded list; and loaded flag == true', async done => {
+    it('logout() should return null user with loading == true', async done => {
       try {
-        let list = await readFirst(facade.allAccount$);
-        let isLoaded = await readFirst(facade.loaded$);
+        let loading = await readFirst(facade.loading$);
 
-        expect(list.length).toBe(0);
-        expect(isLoaded).toBe(false);
+        expect(loading).toBe(false);
 
-        store.dispatch(
-          new AccountLoaded([createAccount('AAA'), createAccount('BBB')])
-        );
+        facade.logout();
 
-        list = await readFirst(facade.allAccount$);
-        isLoaded = await readFirst(facade.loaded$);
+        loading = await readFirst(facade.loading$);
 
-        expect(list.length).toBe(2);
-        expect(isLoaded).toBe(true);
+        expect(loading).toBe(true);
+
+        store.dispatch(new Success());
+
+        loading = await readFirst(facade.loading$);
+
+        expect(loading).toBe(false);
+
+        done();
+      } catch (err) {
+        done.fail(err);
+      }
+    });
+
+    it('update() should return null user with loading == true', async done => {
+      try {
+        let loading = await readFirst(facade.loading$);
+
+        expect(loading).toBe(false);
+
+        const user: IUser = { uid: 'uidTest', email: 'emailTest' };
+        facade.update(user);
+
+        loading = await readFirst(facade.loading$);
+
+        expect(loading).toBe(true);
+
+        store.dispatch(new Success());
+
+        loading = await readFirst(facade.loading$);
+
+        expect(loading).toBe(false);
 
         done();
       } catch (err) {

@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AccountUserComponent } from './account-user.component';
 import { SharedModule } from '@tabularius/shared/ui';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('AccountUserComponent', () => {
   let component: AccountUserComponent;
@@ -11,7 +12,8 @@ describe('AccountUserComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [NoopAnimationsModule, SharedModule],
-      declarations: [AccountUserComponent]
+      declarations: [AccountUserComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 

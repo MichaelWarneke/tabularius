@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AccountMenuComponent } from './account-menu.component';
+import { SharedModule } from '@tabularius/shared/ui';
 
 describe('AccountMenuComponent', () => {
   let component: AccountMenuComponent;
@@ -8,9 +9,9 @@ describe('AccountMenuComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AccountMenuComponent ]
-    })
-    .compileComponents();
+      imports: [SharedModule],
+      declarations: [AccountMenuComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

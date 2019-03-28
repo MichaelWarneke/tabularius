@@ -1,35 +1,36 @@
-import { ApiAuthLoaded } from './api-auth.actions';
 import {
-  ApiAuthState,
-  Entity,
-  initialState,
-  apiAuthReducer
-} from './api-auth.reducer';
+  ApiAuthLogin,
+  ApiAuthSetRedirectUrl,
+  ApiAuthChanged
+} from './api-auth.actions';
+import { ApiAuthState, initialState, apiAuthReducer } from './api-auth.reducer';
+import { ICredentials, IUser } from '@tabularius/shared/models';
 
 describe('ApiAuth Reducer', () => {
-  const getApiAuthId = it => it['id'];
-  let createApiAuth;
+  const CREDENTIALS: ICredentials = { email: '123', password: '456' };
+  const USER: IUser = {
+    uid: '123',
+    email: 'emailTest',
+    displayName: 'displayTest',
+    photoURL: 'photoTest'
+  };
+  const REDIRECT_URL = 'New URL';
 
-  beforeEach(() => {
-    createApiAuth = (id: string, name = ''): Entity => ({
-      id,
-      name: name || `name-${id}`
-    });
-  });
+  beforeEach(() => {});
 
   describe('valid ApiAuth actions ', () => {
-    it('should return set the list of known ApiAuth', () => {
-      const apiAuths = [
-        createApiAuth('PRODUCT-AAA'),
-        createApiAuth('PRODUCT-zzz')
-      ];
-      const action = new ApiAuthLoaded(apiAuths);
+    it('should ApiAuthSetRedirectUrl set redirectUrl', () => {
+      const action = new ApiAuthSetRedirectUrl(REDIRECT_URL);
       const result: ApiAuthState = apiAuthReducer(initialState, action);
-      const selId: string = getApiAuthId(result.list[1]);
 
-      expect(result.loaded).toBe(true);
-      expect(result.list.length).toBe(2);
-      expect(selId).toBe('PRODUCT-zzz');
+      expect(result.redirectUrl).toBe(REDIRECT_URL);
+    });
+
+    it('should ApiAuthChanged set user', () => {
+      const action = new ApiAuthChanged(USER);
+      const result: ApiAuthState = apiAuthReducer(initialState, action);
+
+      expect(result.user).toBe(USER);
     });
   });
 

@@ -1,7 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppAccountContainerComponent } from './app-account-container.component';
-import { Output, Input, EventEmitter, Component } from '@angular/core';
+import {
+  Output,
+  Input,
+  EventEmitter,
+  Component,
+  NO_ERRORS_SCHEMA
+} from '@angular/core';
 import { IUser } from '@tabularius/shared/models';
 import { ReplaySubject, Subject, of } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -42,7 +48,8 @@ describe('AppAccountContainerComponent', () => {
             user$
           }
         }
-      ]
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 

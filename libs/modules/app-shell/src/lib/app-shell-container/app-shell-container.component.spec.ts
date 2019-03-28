@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ApiAuthFacade } from '@tabularius/core/store';
 import { AppShellContainerComponent } from './app-shell-container.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Component, Input } from '@angular/core';
+import { Component, Input, NO_ERRORS_SCHEMA } from '@angular/core';
 import { of, Subject, ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -36,7 +36,8 @@ describe('AppShellContainerComponent', () => {
             userName$
           }
         }
-      ]
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 

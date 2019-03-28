@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppJournalContainerComponent } from './app-journal-container.component';
+import { Component } from '@angular/core';
+
+@Component({ selector: 'tabu-journal-entry-form', template: '' })
+export class StubJournalEntryFormComponent {}
 
 describe('AppJournalContainerComponent', () => {
   let component: AppJournalContainerComponent;
@@ -8,9 +12,11 @@ describe('AppJournalContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppJournalContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        AppJournalContainerComponent,
+        StubJournalEntryFormComponent
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

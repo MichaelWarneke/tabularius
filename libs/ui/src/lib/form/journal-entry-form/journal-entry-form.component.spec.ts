@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { JournalEntryFormComponent } from './journal-entry-form.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('JournalEntryFormComponent', () => {
   let component: JournalEntryFormComponent;
@@ -8,9 +9,9 @@ describe('JournalEntryFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ JournalEntryFormComponent ]
-    })
-    .compileComponents();
+      declarations: [JournalEntryFormComponent],
+      schemas: [NO_ERRORS_SCHEMA]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

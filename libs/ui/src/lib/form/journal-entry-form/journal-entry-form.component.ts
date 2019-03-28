@@ -7,8 +7,7 @@ import {
   Input
 } from '@angular/core';
 import { IJournal, IJournalEntry } from '@tabularius/shared/models';
-import { FormSetup, FormEntrySetup } from './journal-entry-form.model';
-import { FormBuilder } from '@angular/forms';
+import { FormSetup } from './journal-entry-form.model';
 
 const fakeJournalEntry = {
   account: 'office',
@@ -53,7 +52,7 @@ export class JournalEntryFormComponent implements OnInit {
     return this._journal;
   }
 
-  constructor(private fb: FormBuilder) {}
+  constructor() {}
   ngOnInit() {
     console.log('Journal MODEL :', this.formModel);
   }

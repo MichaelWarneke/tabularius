@@ -1,57 +1,64 @@
-import { Entity, ApiAuthState } from './api-auth.reducer';
+import { ApiAuthState } from './api-auth.reducer';
 import { apiAuthQuery } from './api-auth.selectors';
+import { State } from '@ngrx/store';
+import { IUser } from '@tabularius/shared/models';
 
 describe('ApiAuth Selectors', () => {
   const ERROR_MSG = 'No Error Available';
-  const getApiAuthId = it => it['id'];
+  const DISPLAY_NAME = 'TEST DISPLAY NAME';
+  const REDIRECT_URL = 'NEW URL';
+  const USER: IUser = {
+    uid: '123',
+    email: 'emailTest',
+    displayName: DISPLAY_NAME,
+    photoURL: 'photoTest'
+  };
 
-  let storeState;
+  let storeState: any;
 
   beforeEach(() => {
-    const createApiAuth = (id: string, name = ''): Entity => ({
-      id,
-      name: name || `name-${id}`
-    });
     storeState = {
       apiAuth: {
-        list: [
-          createApiAuth('PRODUCT-AAA'),
-          createApiAuth('PRODUCT-BBB'),
-          createApiAuth('PRODUCT-CCC')
-        ],
-        selectedId: 'PRODUCT-BBB',
-        error: ERROR_MSG,
-        loaded: true
+        user: USER,
+        errorMessage: ERROR_MSG,
+        redirectUrl: REDIRECT_URL
       }
     };
   });
 
   describe('ApiAuth Selectors', () => {
-    it('getAllApiAuth() should return the list of ApiAuth', () => {
-      const results = apiAuthQuery.getAllApiAuth(storeState);
-      const selId = getApiAuthId(results[1]);
+    it('Selectors shall return initial state values', () => {
+      const user = apiAuthQuery.getAuthUser(storeState);
+      const errorMessage = apiAuthQuery.getError(storeState);
+      const redirectUrl = apiAuthQuery.getRedirectUrl(storeState);
 
-      expect(results.length).toBe(3);
-      expect(selId).toBe('PRODUCT-BBB');
+      expect(user).toBe(USER);
+      expect(errorMessage).toBe(ERROR_MSG);
+      expect(redirectUrl).toBe(REDIRECT_URL);
     });
 
-    it('getSelectedApiAuth() should return the selected Entity', () => {
-      const result = apiAuthQuery.getSelectedApiAuth(storeState);
-      const selId = getApiAuthId(result);
+    it('getIsAuth shall return auth status', () => {
+      let isAuth = apiAuthQuery.getIsAuth(storeState);
 
-      expect(selId).toBe('PRODUCT-BBB');
+      expect(isAuth).toBe(true);
+
+      storeState = {
+        apiAuth: {
+          user: null,
+          errorMessage: ERROR_MSG,
+          redirectUrl: REDIRECT_URL
+        }
+      };
+
+      isAuth = apiAuthQuery.getIsAuth(storeState);
+
+      expect(isAuth).toBe(false);
     });
 
-    it("getLoaded() should return the current 'loaded' status", () => {
-      const result = apiAuthQuery.getLoaded(storeState);
+    it('getIsAuth shall return auth status', () => {
+      const displayName = apiAuthQuery.getUserDisplayName(storeState);
 
-      expect(result).toBe(true);
-    });
-
-    it("getError() should return the current 'error' storeState", () => {
-      const result = apiAuthQuery.getError(storeState);
-
-      expect(result).toBe(ERROR_MSG);
+      expect(displayName).toBe(DISPLAY_NAME);
     });
   });
 });

@@ -4,6 +4,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TabuAppSidenavComponent } from './tabu-app-sidenav.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from '@tabularius/shared/ui';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('NavComponent', () => {
   let component: TabuAppSidenavComponent;
@@ -13,7 +14,8 @@ describe('NavComponent', () => {
     TestBed.configureTestingModule({
       declarations: [TabuAppSidenavComponent],
       imports: [NoopAnimationsModule, RouterTestingModule, SharedModule],
-      providers: []
+      providers: [],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 

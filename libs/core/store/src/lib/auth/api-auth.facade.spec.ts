@@ -5,40 +5,37 @@ import { readFirst } from '@nrwl/nx/testing';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule, Store } from '@ngrx/store';
 
-import { NxModule } from '@nrwl/nx';
-
 import { ApiAuthEffects } from './api-auth.effects';
 import { ApiAuthFacade } from './api-auth.facade';
 
-import { apiAuthQuery } from './api-auth.selectors';
-import { LoadApiAuth, ApiAuthLoaded } from './api-auth.actions';
-import {
-  ApiAuthState,
-  Entity,
-  initialState,
-  apiAuthReducer
-} from './api-auth.reducer';
+import { ApiAuthState, initialState, apiAuthReducer } from './api-auth.reducer';
+import { ICredentials, IUser } from '@tabularius/shared/models';
+import { NxModule } from '@nrwl/nx';
 
 interface TestSchema {
   apiAuth: ApiAuthState;
 }
 
+const CREDENTIALS: ICredentials = { email: '123', password: '456' };
+const USER: IUser = {
+  uid: '123',
+  email: 'emailTest',
+  displayName: 'displayTest',
+  photoURL: 'photoTest'
+};
+const REDIRECT_URL = 'New URL';
+
 describe('ApiAuthFacade', () => {
   let facade: ApiAuthFacade;
   let store: Store<TestSchema>;
-  let createApiAuth;
 
-  beforeEach(() => {
-    createApiAuth = (id: string, name = ''): Entity => ({
-      id,
-      name: name || `name-${id}`
-    });
-  });
+  beforeEach(() => {});
 
   describe('used in NgModule', () => {
     beforeEach(() => {
       @NgModule({
         imports: [
+          NxModule.forRoot(),
           StoreModule.forFeature('apiAuth', apiAuthReducer, { initialState }),
           EffectsModule.forFeature([ApiAuthEffects])
         ],
@@ -48,7 +45,6 @@ describe('ApiAuthFacade', () => {
 
       @NgModule({
         imports: [
-          NxModule.forRoot(),
           StoreModule.forRoot({}),
           EffectsModule.forRoot([]),
           CustomFeatureModule
@@ -64,48 +60,15 @@ describe('ApiAuthFacade', () => {
     /**
      * The initially generated facade::loadAll() returns empty array
      */
-    it('loadAll() should return empty list with loaded == true', async done => {
+    it('ApiAuthChanged() should change user ', async done => {
       try {
-        let list = await readFirst(facade.allApiAuth$);
-        let isLoaded = await readFirst(facade.loaded$);
+        const user = await readFirst(facade.user$);
 
-        expect(list.length).toBe(0);
-        expect(isLoaded).toBe(false);
+        expect(user).toBe(null);
 
-        facade.loadAll();
+        facade.login(CREDENTIALS);
 
-        list = await readFirst(facade.allApiAuth$);
-        isLoaded = await readFirst(facade.loaded$);
-
-        expect(list.length).toBe(0);
-        expect(isLoaded).toBe(true);
-
-        done();
-      } catch (err) {
-        done.fail(err);
-      }
-    });
-
-    /**
-     * Use `ApiAuthLoaded` to manually submit list for state management
-     */
-    it('allApiAuth$ should return the loaded list; and loaded flag == true', async done => {
-      try {
-        let list = await readFirst(facade.allApiAuth$);
-        let isLoaded = await readFirst(facade.loaded$);
-
-        expect(list.length).toBe(0);
-        expect(isLoaded).toBe(false);
-
-        store.dispatch(
-          new ApiAuthLoaded([createApiAuth('AAA'), createApiAuth('BBB')])
-        );
-
-        list = await readFirst(facade.allApiAuth$);
-        isLoaded = await readFirst(facade.loaded$);
-
-        expect(list.length).toBe(2);
-        expect(isLoaded).toBe(true);
+        expect(user).toBe(null);
 
         done();
       } catch (err) {
