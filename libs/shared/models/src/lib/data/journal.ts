@@ -9,5 +9,5 @@ export interface IJournal extends ITabuBase {
   supplier: string | null | any;
   employee: string | null | any;
   comment: string | null | any;
-  entries: IJournalEntry[];
+  entries: IJournalEntry[] | any;
 }

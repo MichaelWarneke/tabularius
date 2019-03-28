@@ -6,9 +6,30 @@ import {
   EventEmitter,
   Input
 } from '@angular/core';
-import { IJournal } from '@tabularius/shared/models';
-import { FormSetup } from './journal-entry-form.model';
+import { IJournal, IJournalEntry } from '@tabularius/shared/models';
+import { FormSetup, FormEntrySetup } from './journal-entry-form.model';
+import { FormBuilder } from '@angular/forms';
 
+const fakeJournalEntry = {
+  account: 'office',
+  amount: 12.4,
+  currency: 'AUD',
+  amountForeignCurrency: null,
+  currencyForeign: null,
+  comment: 'Hello'
+};
+
+const fakeJournal = {
+  id: '123',
+  date: new Date(Date.now()),
+  dateOfTransaction: null,
+  dateOfEstimateTransaction: null,
+  supplier: null,
+  customer: 'Cust',
+  employee: null,
+  comment: 'Hello',
+  entries: [fakeJournalEntry]
+};
 @Component({
   selector: 'tabu-journal-entry-form',
   templateUrl: './journal-entry-form.component.html',
@@ -16,7 +37,7 @@ import { FormSetup } from './journal-entry-form.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class JournalEntryFormComponent implements OnInit {
-  _journal: IJournal | null = null;
+  _journal: IJournal | null = fakeJournal;
   formModel = new FormSetup();
 
   @Output() save = new EventEmitter<IJournal>();
@@ -32,12 +53,20 @@ export class JournalEntryFormComponent implements OnInit {
     return this._journal;
   }
 
-  constructor() {}
-  ngOnInit() {}
+  constructor(private fb: FormBuilder) {}
+  ngOnInit() {
+    console.log('Journal MODEL :', this.formModel);
+  }
 
   onSave(data: IJournal) {}
 
   onDelete(data: IJournal) {}
 
   onCopy(data: IJournal) {}
+
+  onAddEntry(data: IJournalEntry) {
+    if (this.journal) this.journal.entries.push(data);
+  }
+
+  onDeleteEntry(data: IJournalEntry) {}
 }

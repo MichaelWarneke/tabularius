@@ -9,7 +9,7 @@ export class UserFormModel implements IUserAbstract {
   uid = new FormControlTextbox('', [Validators.required]);
   email = new FormControlTextbox('', [Validators.required]);
   displayName = new FormControlTextbox('', [Validators.required]);
-  photoURL = new FormControlTextbox('', [Validators.required]);
+  photoURL = new FormControlTextbox('', []);
   constructor() {
     this.uid.label = 'User ID';
     this.email.label = 'Email';

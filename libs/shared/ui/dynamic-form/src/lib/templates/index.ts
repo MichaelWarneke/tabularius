@@ -1,3 +1,5 @@
+export { ArrayComponent } from './array/array.component';
+
 export { RadioButtonComponent } from './radio-button/radio-button.component';
 
 export { CheckboxComponent } from './checkbox/checkbox.component';

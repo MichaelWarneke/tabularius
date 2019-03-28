@@ -8,7 +8,8 @@ import {
   ApiAuthLogin,
   ApiAuthLogout,
   ApiAuthUpdateUser,
-  ApiAuthRedirectLogin
+  ApiAuthRedirectLogin,
+  ApiAuthSetRedirectUrl
 } from './api-auth.actions';
 import { ICredentials, IUser } from '@tabularius/shared/models';
 
@@ -18,6 +19,7 @@ export class ApiAuthFacade {
   error$ = this.store.pipe(select(apiAuthQuery.getError));
   isAuth$ = this.store.pipe(select(apiAuthQuery.getIsAuth));
   userName$ = this.store.pipe(select(apiAuthQuery.getUserDisplayName));
+  redirectUrl$ = this.store.pipe(select(apiAuthQuery.getRedirectUrl));
 
   constructor(private store: Store<ApiAuthPartialState>) {}
 
@@ -29,11 +31,16 @@ export class ApiAuthFacade {
     this.store.dispatch(new ApiAuthLogout());
   }
 
-  redirectLogin() {
+  redirectLogin(url: string) {
+    this.setRedirectUrl(url);
     this.store.dispatch(new ApiAuthRedirectLogin());
   }
 
   updateUser(user: IUser) {
     this.store.dispatch(new ApiAuthUpdateUser(user));
+  }
+
+  setRedirectUrl(url: string) {
+    this.store.dispatch(new ApiAuthSetRedirectUrl(url));
   }
 }

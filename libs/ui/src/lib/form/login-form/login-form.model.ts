@@ -13,9 +13,9 @@ export class CredentialFormModel implements ICredentialsAbstract {
   userName = new FormControlTextbox('', []);
   password = new FormControlTextbox('', [Validators.required]);
   //TODO remove (Only for testing)
-  test = new FormControlCheckbox(false, [Validators.required]);
-  sel = new FormControlSelect('', [Validators.required]);
-  rad = new FormControlRadioButton('', [Validators.required]);
+  test = new FormControlCheckbox(false, []);
+  sel = new FormControlSelect('', []);
+  rad = new FormControlRadioButton('', []);
   //TODO remove (Only for testing)
   constructor() {
     this.email.label = 'Email';

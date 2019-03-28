@@ -6,6 +6,7 @@ export const APIAUTH_FEATURE_KEY = 'apiAuth';
 export interface ApiAuthState {
   user: IUser | null; // list of ApiAuth; analogous to a sql normalized table
   errorMessage: string | null; // last none error (if any)
+  redirectUrl: string | null;
 }
 
 export interface ApiAuthPartialState {
@@ -14,7 +15,8 @@ export interface ApiAuthPartialState {
 
 export const initialState: ApiAuthState = {
   user: null,
-  errorMessage: null
+  errorMessage: null,
+  redirectUrl: null
 };
 
 export function apiAuthReducer(
@@ -26,6 +28,13 @@ export function apiAuthReducer(
       state = {
         ...state,
         user: action.user
+      };
+      break;
+    }
+    case ApiAuthActionTypes.ApiAuthSetRedirectUrl: {
+      state = {
+        ...state,
+        redirectUrl: action.url
       };
       break;
     }

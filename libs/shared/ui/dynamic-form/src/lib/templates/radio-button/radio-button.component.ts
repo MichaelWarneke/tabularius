@@ -8,7 +8,7 @@ import { FormControlRadioButton } from '../../models';
   styleUrls: ['./radio-button.component.scss']
 })
 export class RadioButtonComponent {
-  val: FormControlRadioButton | null = null;
+  control: FormControlRadioButton | null = null;
   group: FormGroup | null = null;
 
   constructor() {}

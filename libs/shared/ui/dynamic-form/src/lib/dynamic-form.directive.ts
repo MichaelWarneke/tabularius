@@ -6,21 +6,30 @@ import {
   OnInit,
   ViewContainerRef
 } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import {
   InputComponent,
   DatepickerComponent,
   CheckboxComponent,
   SelectComponent,
-  RadioButtonComponent
+  RadioButtonComponent,
+  ArrayComponent
 } from './templates';
-import { FormControlTextbox } from './models';
+import {
+  FormControlTextbox,
+  FormControlCheckbox,
+  FormControlDate,
+  FormControlRadioButton,
+  FormControlSelect,
+  FormControlArray,
+  FormControlBase
+} from './models';
 
 @Directive({
   selector: '[dynamicField]'
 })
 export class DynamicFormDirective implements OnInit {
-  @Input() val: FormControlTextbox | null = null;
+  @Input() control: FormControlBase | FormArray | null = null;
   @Input() group: FormGroup | null = null;
   componentRef: any;
   constructor(
@@ -28,28 +37,34 @@ export class DynamicFormDirective implements OnInit {
     private container: ViewContainerRef
   ) {}
   ngOnInit() {
-    if (this.val && this.group) {
+    if (this.control && this.group) {
       let factory;
-      switch (this.val.controlType) {
-        case 'input':
+      switch (this.control.constructor) {
+        case FormControlTextbox:
           factory = this.resolver.resolveComponentFactory(InputComponent);
           break;
-        case 'datepicker':
+        case FormControlDate:
           factory = this.resolver.resolveComponentFactory(DatepickerComponent);
           break;
-        case 'checkbox':
+        case FormControlCheckbox:
           factory = this.resolver.resolveComponentFactory(CheckboxComponent);
           break;
-        case 'select':
+        case FormControlSelect:
           factory = this.resolver.resolveComponentFactory(SelectComponent);
           break;
-        case 'radio-button':
+        case FormControlRadioButton:
           factory = this.resolver.resolveComponentFactory(RadioButtonComponent);
           break;
+        case FormArray:
+          factory = this.resolver.resolveComponentFactory(ArrayComponent);
+          console.warn('Array found :', this.control);
+          break;
+        default:
+          console.warn('Other found :', this.control);
       }
       if (factory) {
         this.componentRef = this.container.createComponent(factory);
-        this.componentRef.instance.val = this.val;
+        this.componentRef.instance.control = this.control;
         this.componentRef.instance.group = this.group;
       }
     }

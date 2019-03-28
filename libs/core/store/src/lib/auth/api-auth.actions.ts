@@ -11,7 +11,8 @@ export enum ApiAuthActionTypes {
   ApiAuthUpdateUser = '[ApiAuth] Update User',
   ApiAuthRedirectLogin = '[ApiAuth] Redirect Login',
   ApiAuthError = '[ApiAuth] Error',
-  ApiAuthSuccess = '[ApiAuth] Success'
+  ApiAuthSuccess = '[ApiAuth] Success',
+  ApiAuthSetRedirectUrl = '[ApiAuth] Set Redirect URL'
 }
 
 export class ApiAuthChanged implements Action {
@@ -61,6 +62,11 @@ export class ApiAuthSuccess implements Action {
   constructor(public message: string) {}
 }
 
+export class ApiAuthSetRedirectUrl implements Action {
+  readonly type = ApiAuthActionTypes.ApiAuthSetRedirectUrl;
+  constructor(public url: string | null) {}
+}
+
 export type ApiAuthAction =
   | ApiAuthChanged
   | ApiAuthGetUser
@@ -71,7 +77,8 @@ export type ApiAuthAction =
   | ApiAuthUpdateUser
   | ApiAuthRedirectLogin
   | ApiAuthError
-  | ApiAuthSuccess;
+  | ApiAuthSuccess
+  | ApiAuthSetRedirectUrl;
 
 export const fromApiAuthActions = {
   ApiAuthChanged,
@@ -83,5 +90,6 @@ export const fromApiAuthActions = {
   ApiAuthUpdateUser,
   ApiAuthRedirectLogin,
   ApiAuthError,
-  ApiAuthSuccess
+  ApiAuthSuccess,
+  ApiAuthSetRedirectUrl
 };

@@ -21,18 +21,50 @@ export class DynamicFormComponent implements OnInit {
   }
   @Output() saveEntry = new EventEmitter<any>();
   @Output() deleteEntry = new EventEmitter<any>();
+  @Output() copyEntry = new EventEmitter<any>();
 
-  form: any | null = new FormGroup({});
-  formlist = new Array();
+  form: FormGroup = new FormGroup({});
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    if (this.formModel && this.formModel.model)
+    console.log('Before :', this.formModel.model);
+    this.form = this.convertModel(this.formModel.model);
+    //this.form = new FormGroup(this.formModel.model);
+    console.log('After');
+    /*    if (this.formModel && this.formModel.model) {
       this.form = this.fb.group(this.formModel.model);
-    this.updateData(this.data);
+      if (this.formModel.entryModel) {
+        this.form.entries = this.fb.array([]);
+      }
+    }
+*/ this.updateData(
+      this.data
+    );
   }
 
+  convertModel(model: any): FormGroup {
+    const form: FormGroup = new FormGroup({});
+    console.log('model :', model);
+    Object.keys(model).forEach(key => {
+      const control = model[key];
+      if (control instanceof FormControlBase) {
+        form.addControl(key, control);
+      } else if (control instanceof Array) {
+        for (const group of control) {
+          const formGroup: FormGroup = this.convertModel(group);
+          const formArray: FormArray = new FormArray([]);
+          formArray.push(formGroup);
+          form.addControl(key, formArray);
+        }
+        console.log(key, ' IT IS Array :', control);
+      } else {
+        console.log(key, ' IT IS NOT :', control);
+      }
+      control.key = key;
+    });
+    return form;
+  }
   onSave() {
     if (this.form) this.saveEntry.emit(this.form.value);
   }
@@ -45,17 +77,13 @@ export class DynamicFormComponent implements OnInit {
     if (this.form) this.deleteEntry.emit(this.form.value);
   }
 
+  onCopy() {
+    if (this.form) this.deleteEntry.emit(this.form.value);
+  }
+
   updateData(data: any) {
-    if (data && this.form) {
-      this.form.patchValue(this.data);
-      this.formlist = new Array();
-      Object.keys(this.form.controls).forEach(key => {
-        if (this.form)
-          this.formlist.push({
-            ...(this.form.get(key) as FormControlBase),
-            key: key
-          });
-      });
+    if (this.form) {
+      if (this.data) this.form.patchValue(this.data);
     }
   }
 }

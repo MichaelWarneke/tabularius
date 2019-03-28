@@ -1,11 +1,4 @@
-<form [formGroup]="form">
-  <ng-container
-    *ngFor="let val of formlist"
-    dynamicField
-    [val]="val"
-    [group]="form"
-  ></ng-container>
-</form>
+<tabu-dynamic-form-group [form]="form"></tabu-dynamic-form-group>
 
 <tabu-dynamic-form-button
   *ngIf="formModel?.submitButtonText"
@@ -21,9 +14,18 @@
   (onClicked)="onReset()"
 ></tabu-dynamic-form-button>
 <tabu-dynamic-form-button
+  *ngIf="formModel?.copyButtonText"
+  [text]="formModel?.copyButtonText"
+  [group]="form"
+  (onClicked)="onCopy()"
+></tabu-dynamic-form-button>
+<tabu-dynamic-form-button
   *ngIf="formModel?.deleteButtonText"
   color="warn"
   [text]="formModel?.deleteButtonText"
   [group]="form"
   (onClicked)="onDelete()"
 ></tabu-dynamic-form-button>
+<br />
+{{ form.valid }} <br />
+{{ form.value | json }}

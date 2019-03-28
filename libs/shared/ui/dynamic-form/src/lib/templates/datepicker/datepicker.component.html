@@ -1,9 +1,9 @@
-<mat-form-field [formGroup]="group">
+<mat-form-field class="tabu-datepicker" [formGroup]="group">
   <input
     matInput
     [matDatepicker]="picker"
-    placeholder="{{val?.label}}"
-    [formControlName]="val?.key"
+    placeholder="{{control?.label}}"
+    [formControlName]="control?.key"
   />
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>

@@ -2,7 +2,11 @@ import { Injectable } from '@angular/core';
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/nx';
 
-import { ApiAuthPartialState, APIAUTH_FEATURE_KEY } from './api-auth.reducer';
+import {
+  ApiAuthPartialState,
+  APIAUTH_FEATURE_KEY,
+  ApiAuthState
+} from './api-auth.reducer';
 import {
   ApiAuthGetUser,
   ApiAuthGetUserSuccess,
@@ -13,14 +17,24 @@ import {
   ApiAuthChanged,
   ApiAuthLogout,
   ApiAuthLogin,
-  ApiAuthRedirectLogin
+  ApiAuthRedirectLogin,
+  ApiAuthSetRedirectUrl
 } from './api-auth.actions';
 import { IAuthService } from '@tabularius/database';
 import { IUser } from '@tabularius/shared/models';
-import { switchMap, catchError, tap, flatMap } from 'rxjs/operators';
+import {
+  switchMap,
+  catchError,
+  tap,
+  flatMap,
+  withLatestFrom,
+  map
+} from 'rxjs/operators';
 import { of, from, Observable, throwError } from 'rxjs';
 
 import { Router } from '@angular/router';
+import { Store, select } from '@ngrx/store';
+import { apiAuthQuery } from './api-auth.selectors';
 
 @Injectable()
 export class ApiAuthEffects {
@@ -29,10 +43,26 @@ export class ApiAuthEffects {
   > = this.db.getAuthUser().pipe(
     switchMap((user: IUser | null) => {
       console.warn('EFFECT:::onAuthStateChange :', user);
+
+      if (user) {
+        this.router.navigate(['./dash']);
+      }
       return of(new ApiAuthChanged(user));
     })
   );
 
+  @Effect({ dispatch: false })
+  authSuccess$ = this.actions$.pipe(
+    ofType<ApiAuthChanged>(ApiAuthActionTypes.ApiAuthChanged),
+    map(action => action.user),
+    withLatestFrom(this.store.pipe(select(apiAuthQuery.getRedirectUrl))),
+    tap(([user, b]) => {
+      if (user && b) {
+        this.router.navigate([b]);
+        this.store.dispatch(new ApiAuthSetRedirectUrl(null));
+      }
+    })
+  );
   @Effect() updateAuth = this.dataPersistence.pessimisticUpdate(
     ApiAuthActionTypes.ApiAuthUpdateUser,
     {
@@ -127,6 +157,7 @@ export class ApiAuthEffects {
     private actions$: Actions,
     private dataPersistence: DataPersistence<ApiAuthPartialState>,
     private db: IAuthService,
-    private router: Router
+    private router: Router,
+    private store: Store<ApiAuthState>
   ) {}
 }

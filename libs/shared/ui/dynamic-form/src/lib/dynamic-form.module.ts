@@ -10,6 +10,8 @@ import {
 import { SelectComponent } from './templates/select/select.component';
 import { CheckboxComponent } from './templates/checkbox/checkbox.component';
 import { RadioButtonComponent } from './templates/radio-button/radio-button.component';
+import { ArrayComponent } from './templates/array/array.component';
+import { GroupComponent } from './templates/group/group.component';
 
 @NgModule({
   imports: [SharedModule],
@@ -21,7 +23,9 @@ import { RadioButtonComponent } from './templates/radio-button/radio-button.comp
     FormButtonComponent,
     SelectComponent,
     CheckboxComponent,
-    RadioButtonComponent
+    RadioButtonComponent,
+    ArrayComponent,
+    GroupComponent
   ],
   exports: [DynamicFormComponent],
   entryComponents: [
@@ -29,7 +33,9 @@ import { RadioButtonComponent } from './templates/radio-button/radio-button.comp
     DatepickerComponent,
     SelectComponent,
     CheckboxComponent,
-    RadioButtonComponent
+    RadioButtonComponent,
+    ArrayComponent,
+    GroupComponent
   ]
 })
 export class DynamicFormModule {}

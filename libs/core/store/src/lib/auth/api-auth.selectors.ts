@@ -11,6 +11,11 @@ const getAuthUser = createSelector(
   (state: ApiAuthState) => state.user
 );
 
+const getRedirectUrl = createSelector(
+  getApiAuthState,
+  (state: ApiAuthState) => state.redirectUrl
+);
+
 const getUserDisplayName = createSelector(
   getApiAuthState,
   getAuthUser,
@@ -36,5 +41,6 @@ export const apiAuthQuery = {
   getAuthUser,
   getError,
   getIsAuth,
-  getUserDisplayName
+  getUserDisplayName,
+  getRedirectUrl
 };

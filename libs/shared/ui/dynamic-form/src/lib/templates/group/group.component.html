@@ -1,0 +1,8 @@
+<form [formGroup]="form">
+  <ng-container
+    *ngFor="let control of formlist"
+    dynamicField
+    [control]="control"
+    [group]="form"
+  ></ng-container>
+</form>

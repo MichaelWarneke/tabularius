@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./select.component.scss']
 })
 export class SelectComponent {
-  val: FormControlSelect | null = null;
+  control: FormControlSelect | null = null;
   group: FormGroup | null = null;
 
   constructor() {}

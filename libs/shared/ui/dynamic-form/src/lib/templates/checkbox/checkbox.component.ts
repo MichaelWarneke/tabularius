@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./checkbox.component.scss']
 })
 export class CheckboxComponent {
-  val: FormControlCheckbox | null = null;
+  control: FormControlCheckbox | null = null;
   group: FormGroup | null = null;
 
   constructor() {}
