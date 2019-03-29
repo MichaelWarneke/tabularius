@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormButtonComponent should render 1`] = `
+<tabu-dynamic-form-button
+  buttonClicked={[Function EventEmitter]}
+  color={[Function String]}
+  group="null"
+  text={[Function String]}
+>
+  <button
+    class="form-button"
+    mat-raised-button=""
+  >
+     testText 
+  </button>
+</tabu-dynamic-form-button>
+`;

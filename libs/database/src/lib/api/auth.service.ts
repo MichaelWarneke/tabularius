@@ -8,6 +8,5 @@ export abstract class IAuthService {
   abstract getAuthUserDisplayName(): Observable<string | undefined | null>;
   abstract updateAuthUserProfile(user: IUser): Observable<any>;
   abstract loginEmailPassword(credentials: ICredentials): Promise<any>;
-  abstract login(): Promise<any>;
   abstract logout(): Promise<any>;
 }

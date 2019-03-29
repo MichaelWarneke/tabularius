@@ -46,4 +46,8 @@ describe('DatepickerComponent', () => {
     const text = attributes['ng-reflect-name'];
     expect(text).toContain(key);
   });
+
+  it('should render', () => {
+    expect(fixture).toMatchSnapshot();
+  });
 });

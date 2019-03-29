@@ -4,7 +4,7 @@ import { IUser, ICredentials } from '@tabularius/shared/models';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable, of, throwError } from 'rxjs';
 import { switchMap, startWith, tap, filter, map } from 'rxjs/operators';
-import { testCredentials } from '../firebase/firebase-key';
+//import { testCredentials } from '../firebase/firebase-key';
 
 @Injectable({
   providedIn: 'root'
@@ -68,20 +68,16 @@ export class FirebaseAuthService implements IAuthService {
   async loginEmailPassword(credentials: ICredentials): Promise<any> {
     if (credentials.email) {
       return this.afAuth.auth.signInWithEmailAndPassword(
-        testCredentials.email,
-        testCredentials.password
+        //        testCredentials.email,
+        //        testCredentials.password
+        credentials.email,
+        credentials.password
       );
     } else {
       return Promise.reject('No Email Provided');
     }
   }
 
-  async login(): Promise<any> {
-    return this.afAuth.auth.signInWithEmailAndPassword(
-      testCredentials.email,
-      testCredentials.password
-    );
-  }
   async logout(): Promise<any> {
     return this.afAuth.auth.signOut();
   }

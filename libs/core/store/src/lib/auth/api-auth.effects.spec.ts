@@ -42,7 +42,7 @@ class IAuthServiceMock {
 }
 
 describe('ApiAuthEffects', () => {
-  const actions: Observable<any> | null = null;
+  const actions: Observable<any> = new Observable();
   let effects: ApiAuthEffects;
 
   beforeEach(() => {

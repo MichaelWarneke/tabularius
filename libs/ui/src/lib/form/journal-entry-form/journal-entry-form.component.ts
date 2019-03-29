@@ -53,9 +53,7 @@ export class JournalEntryFormComponent implements OnInit {
   }
 
   constructor() {}
-  ngOnInit() {
-    console.log('Journal MODEL :', this.formModel);
-  }
+  ngOnInit() {}
 
   onSave(data: IJournal) {}
 

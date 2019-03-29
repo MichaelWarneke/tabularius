@@ -34,4 +34,8 @@ describe('FormButtonComponent', () => {
       .innerHTML;
     expect(innerText).toContain(text);
   });
+
+  it('should render', () => {
+    expect(fixture).toMatchSnapshot();
+  });
 });
