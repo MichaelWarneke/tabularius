@@ -18,7 +18,8 @@ import {
   ApiAuthLogout,
   ApiAuthLogin,
   ApiAuthRedirectLogin,
-  ApiAuthSetRedirectUrl
+  ApiAuthSetRedirectUrl,
+  ApiAuthActions
 } from './api-auth.actions';
 import { IAuthService } from '@tabularius/database';
 import { IUser } from '@tabularius/shared/models';
@@ -53,7 +54,7 @@ export class ApiAuthEffects {
 
   @Effect({ dispatch: false })
   authSuccess$ = this.actions$.pipe(
-    ofType<ApiAuthChanged>(ApiAuthActionTypes.ApiAuthChanged),
+    ofType(ApiAuthActionTypes.ApiAuthChanged),
     map(action => action.user),
     withLatestFrom(this.store.pipe(select(apiAuthQuery.getRedirectUrl))),
     tap(([user, b]) => {
@@ -154,7 +155,7 @@ export class ApiAuthEffects {
   );
 
   constructor(
-    private actions$: Actions,
+    private actions$: Actions<ApiAuthActions>,
     private dataPersistence: DataPersistence<ApiAuthPartialState>,
     private db: IAuthService,
     private router: Router,

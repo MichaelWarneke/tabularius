@@ -67,7 +67,7 @@ export class ApiAuthSetRedirectUrl implements Action {
   constructor(public url: string | null) {}
 }
 
-export type ApiAuthAction =
+export type ApiAuthActions =
   | ApiAuthChanged
   | ApiAuthGetUser
   | ApiAuthGetUserSuccess

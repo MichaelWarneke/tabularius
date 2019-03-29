@@ -1,5 +1,5 @@
-import { AccountAction, AccountActionTypes } from './account.actions';
-import { ApiAuthActionTypes, ApiAuthAction } from '@tabularius/core/store';
+import { AccountActions, AccountActionTypes } from './account.actions';
+import { ApiAuthActionTypes, ApiAuthActions } from '@tabularius/core/store';
 
 export const ACCOUNT_FEATURE_KEY = 'account';
 
@@ -17,7 +17,7 @@ export const initialState: AccountState = {
 
 export function accountReducer(
   state: AccountState = initialState,
-  action: AccountAction | ApiAuthAction
+  action: AccountActions | ApiAuthActions
 ): AccountState {
   switch (action.type) {
     case AccountActionTypes.Login:

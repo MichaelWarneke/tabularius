@@ -1,4 +1,4 @@
-import { ApiAuthAction, ApiAuthActionTypes } from './api-auth.actions';
+import { ApiAuthActions, ApiAuthActionTypes } from './api-auth.actions';
 import { IUser } from '@tabularius/shared/models';
 
 export const APIAUTH_FEATURE_KEY = 'apiAuth';
@@ -21,7 +21,7 @@ export const initialState: ApiAuthState = {
 
 export function apiAuthReducer(
   state: ApiAuthState = initialState,
-  action: ApiAuthAction
+  action: ApiAuthActions
 ): ApiAuthState {
   switch (action.type) {
     case ApiAuthActionTypes.ApiAuthChanged: {

@@ -32,7 +32,7 @@ export class Error implements Action {
   constructor(public error: string) {}
 }
 
-export type AccountAction = Login | Logout | Update | Success | Error;
+export type AccountActions = Login | Logout | Update | Success | Error;
 
 export const fromAccountActions = {
   Login,
