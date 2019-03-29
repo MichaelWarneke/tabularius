@@ -12,7 +12,7 @@ export class FormButtonStubComponent {
   @Input() text: string | null = null;
   @Input() group: FormGroup | null = null;
   @Input() color: string | null = null;
-  @Output() onClicked = new EventEmitter<any>();
+  @Output() buttonClicked = new EventEmitter<any>();
 }
 
 @Component({ selector: 'tabu-dynamic-form-group', template: '' })

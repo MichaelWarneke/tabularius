@@ -5,6 +5,7 @@ import { AppSetupContainerComponent } from './app-setup-container.component';
 import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { ITax } from '@tabularius/shared/models';
 
+// tslint:disable-next-line:component-selector
 @Component({ selector: 'tabu-setup-tax-form', template: '' })
 class SetupTaxFormStubComponent {
   @Output() saveTax = new EventEmitter<ITax>();

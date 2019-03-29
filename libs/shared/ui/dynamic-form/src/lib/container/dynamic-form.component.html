@@ -4,25 +4,25 @@
   *ngIf="formModel?.submitButtonText"
   [text]="formModel?.submitButtonText"
   [group]="form"
-  (onClicked)="onSave()"
+  (buttonClicked)="onSave()"
 ></tabu-dynamic-form-button>
 <tabu-dynamic-form-button
   *ngIf="formModel?.resetButtonText"
   color="accent"
   [text]="formModel?.resetButtonText"
   [group]="form"
-  (onClicked)="onReset()"
+  (buttonClicked)="onReset()"
 ></tabu-dynamic-form-button>
 <tabu-dynamic-form-button
   *ngIf="formModel?.copyButtonText"
   [text]="formModel?.copyButtonText"
   [group]="form"
-  (onClicked)="onCopy()"
+  (buttonClicked)="onCopy()"
 ></tabu-dynamic-form-button>
 <tabu-dynamic-form-button
   *ngIf="formModel?.deleteButtonText"
   color="warn"
   [text]="formModel?.deleteButtonText"
   [group]="form"
-  (onClicked)="onDelete()"
+  (buttonClicked)="onDelete()"
 ></tabu-dynamic-form-button>

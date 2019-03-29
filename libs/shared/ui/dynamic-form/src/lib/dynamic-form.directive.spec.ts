@@ -16,7 +16,6 @@ class TestDynamicFormDirectiveComponent {}
 describe('DynamicFormDirective', () => {
   let component: TestDynamicFormDirectiveComponent;
   let fixture: ComponentFixture<TestDynamicFormDirectiveComponent>;
-  let inputEl: DebugElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({

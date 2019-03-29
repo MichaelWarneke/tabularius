@@ -2,6 +2,7 @@ import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { Component } from '@angular/core';
 
+// tslint:disable-next-line:component-selector
 @Component({ selector: 'app-shell-container', template: '' })
 class AppShellStubComponent {}
 
@@ -11,6 +12,7 @@ describe('AppComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [],
       declarations: [AppComponent, AppShellStubComponent]
     }).compileComponents();
   }));

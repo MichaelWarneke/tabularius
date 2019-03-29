@@ -13,6 +13,7 @@ import { ReplaySubject, Subject, of } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AccountFacade } from '../+state/account.facade';
 
+// tslint:disable-next-line:component-selector
 @Component({ selector: 'tabu-account-user', template: '' })
 class AccountUserStubComponent {
   @Output() save = new EventEmitter<IUser>();

@@ -9,7 +9,7 @@ const credentialsMock = {
   password: 'password'
 };
 
-interface userType {
+interface UserType {
   uid: string;
   email: string;
 }

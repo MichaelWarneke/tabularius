@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppJournalContainerComponent } from './app-journal-container.component';
 import { Component } from '@angular/core';
 
+// tslint:disable-next-line:component-selector
 @Component({ selector: 'tabu-journal-entry-form', template: '' })
 export class StubJournalEntryFormComponent {}
 

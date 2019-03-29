@@ -6,6 +6,7 @@ import { Component, Input, NO_ERRORS_SCHEMA } from '@angular/core';
 import { of, Subject, ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+// tslint:disable-next-line:component-selector
 @Component({ selector: 'tabu-app-sidenav', template: '' })
 class SidenavStubComponent {
   @Input() userName: string | null = null;
