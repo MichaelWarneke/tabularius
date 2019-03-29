@@ -14,10 +14,7 @@ export class AccountFacade {
   error$ = this.apiStore.error$; // .store.pipe(select(apiAuthQuery.getAuthUser));
   loading$ = this.store.pipe(select(accountQuery.getLoading));
 
-  constructor(
-    private store: Store<AccountPartialState>,
-    private apiStore: ApiAuthFacade
-  ) {}
+  constructor(private store: Store<{}>, private apiStore: ApiAuthFacade) {}
 
   login(credentials: ICredentials) {
     this.store.dispatch(new Login(credentials));

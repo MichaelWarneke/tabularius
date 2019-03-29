@@ -159,6 +159,6 @@ export class ApiAuthEffects {
     private dataPersistence: DataPersistence<ApiAuthPartialState>,
     private db: IAuthService,
     private router: Router,
-    private store: Store<ApiAuthState>
+    private store: Store<{}>
   ) {}
 }

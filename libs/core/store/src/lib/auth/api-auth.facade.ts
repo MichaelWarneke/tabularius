@@ -21,7 +21,7 @@ export class ApiAuthFacade {
   userName$ = this.store.pipe(select(apiAuthQuery.getUserDisplayName));
   redirectUrl$ = this.store.pipe(select(apiAuthQuery.getRedirectUrl));
 
-  constructor(private store: Store<ApiAuthPartialState>) {}
+  constructor(private store: Store<{}>) {}
 
   login(credentials: ICredentials) {
     this.store.dispatch(new ApiAuthLogin(credentials));

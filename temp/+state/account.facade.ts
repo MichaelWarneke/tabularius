@@ -12,7 +12,7 @@ export class AccountFacade {
   allAccount$ = this.store.pipe(select(accountQuery.getAllAccount));
   selectedAccount$ = this.store.pipe(select(accountQuery.getSelectedAccount));
 
-  constructor(private store: Store<AccountPartialState>) {}
+  constructor(private store: Store<{}>) {}
 
   loadAll() {
     this.store.dispatch(new LoadAccount());
