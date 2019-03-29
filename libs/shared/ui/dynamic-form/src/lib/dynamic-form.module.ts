@@ -12,10 +12,12 @@ import { CheckboxComponent } from './templates/checkbox/checkbox.component';
 import { RadioButtonComponent } from './templates/radio-button/radio-button.component';
 import { ArrayComponent } from './templates/array/array.component';
 import { GroupComponent } from './templates/group/group.component';
+import { BaseComponent } from './templates/base.component';
 
 @NgModule({
   imports: [SharedModule],
   declarations: [
+    BaseComponent,
     DynamicFormDirective,
     DynamicFormComponent,
     InputComponent,

@@ -1,6 +1,6 @@
 <h1>Tax Form</h1>
 <tabu-dynamic-form
   [formModel]="formModel"
-  [data]="_user"
-  (saveEntry)="onSave($event)"
+  [data]="tax"
+  (saveEntry)="onSubmit($event)"
 ></tabu-dynamic-form>
