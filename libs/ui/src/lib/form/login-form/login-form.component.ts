@@ -16,7 +16,7 @@ export class LoginFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-  onlogin() {
-    this.login.emit({ email: 'Test', password: '123' });
+  onlogin(credentials: ICredentials) {
+    this.login.emit(credentials);
   }
 }
