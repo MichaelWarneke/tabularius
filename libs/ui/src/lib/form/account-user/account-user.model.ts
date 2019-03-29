@@ -7,7 +7,7 @@ import {
 
 export class UserFormModel implements IUserAbstract {
   uid = new FormControlTextbox('', [Validators.required]);
-  email = new FormControlTextbox('', [Validators.required]);
+  email = new FormControlTextbox('', [Validators.required, Validators.email]);
   displayName = new FormControlTextbox('', [Validators.required]);
   photoURL = new FormControlTextbox('', []);
   constructor() {

@@ -1,7 +1,18 @@
 <mat-form-field class="tabu-input" [formGroup]="group">
   <input
     matInput
+    [type]="hide ? control?.type : 'text'"
     placeholder="{{control?.label}}"
     [formControlName]="control?.key"
   />
+  <button
+    *ngIf="control?.type == 'password'"
+    mat-icon-button
+    matSuffix
+    (click)="hide = !hide"
+    [attr.aria-label]="'Hide password'"
+    [attr.aria-pressed]="hide"
+  >
+    <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+  </button>
 </mat-form-field>

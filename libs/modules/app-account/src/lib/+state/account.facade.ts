@@ -6,14 +6,18 @@ import { AccountPartialState } from './account.reducer';
 import { accountQuery } from './account.selectors';
 import { Login, Logout, Update } from './account.actions';
 import { ICredentials, IUser } from '@tabularius/shared/models';
-import { apiAuthQuery } from '@tabularius/core/store';
+import { apiAuthQuery, ApiAuthFacade } from '@tabularius/core/store';
 
 @Injectable()
 export class AccountFacade {
-  user$ = this.store.pipe(select(apiAuthQuery.getAuthUser));
+  user$ = this.apiStore.user$; // .store.pipe(select(apiAuthQuery.getAuthUser));
+  error$ = this.apiStore.error$; // .store.pipe(select(apiAuthQuery.getAuthUser));
   loading$ = this.store.pipe(select(accountQuery.getLoading));
 
-  constructor(private store: Store<AccountPartialState>) {}
+  constructor(
+    private store: Store<AccountPartialState>,
+    private apiStore: ApiAuthFacade
+  ) {}
 
   login(credentials: ICredentials) {
     this.store.dispatch(new Login(credentials));

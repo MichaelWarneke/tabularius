@@ -1,1 +1,4 @@
-<tabu-login-form (login)="login($event)"></tabu-login-form>
+<tabu-login-form
+  [error]="error$ | async"
+  (login)="login($event)"
+></tabu-login-form>

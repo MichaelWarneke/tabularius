@@ -9,6 +9,7 @@ import { BaseComponent } from '../base.component';
 })
 export class InputComponent extends BaseComponent {
   control: FormControlTextbox | null = null;
+  hide = true;
   constructor() {
     super();
   }

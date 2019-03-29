@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountFacade } from '../+state/account.facade';
 import { ICredentials } from '@tabularius/shared/models';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-account-login-container',
@@ -8,7 +9,10 @@ import { ICredentials } from '@tabularius/shared/models';
   styleUrls: ['./login-container.component.scss']
 })
 export class LoginContainerComponent implements OnInit {
-  constructor(private locStore: AccountFacade) {}
+  error$: Observable<string | null>;
+  constructor(private locStore: AccountFacade) {
+    this.error$ = locStore.error$;
+  }
 
   ngOnInit() {}
 

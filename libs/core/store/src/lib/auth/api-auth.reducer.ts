@@ -38,6 +38,20 @@ export function apiAuthReducer(
       };
       break;
     }
+    case ApiAuthActionTypes.ApiAuthError: {
+      state = {
+        ...state,
+        errorMessage: action.message
+      };
+      break;
+    }
+    case ApiAuthActionTypes.ApiAuthSuccess: {
+      state = {
+        ...state,
+        errorMessage: null
+      };
+      break;
+    }
   }
   return state;
 }

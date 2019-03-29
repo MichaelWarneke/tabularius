@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormSetup } from './login-form.model';
 import { ICredentials } from '@tabularius/shared/models';
 
@@ -8,6 +8,7 @@ import { ICredentials } from '@tabularius/shared/models';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
+  @Input() error = '';
   @Output() login = new EventEmitter<any>();
 
   formModel = new FormSetup();
