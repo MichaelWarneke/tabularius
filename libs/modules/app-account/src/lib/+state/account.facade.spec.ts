@@ -12,6 +12,8 @@ import { accountQuery } from './account.selectors';
 import { Login, Logout, Update, Success } from './account.actions';
 import { AccountState, initialState, accountReducer } from './account.reducer';
 import { ICredentials, IUser } from '@tabularius/shared/models';
+import { ApiAuthFacade } from '@tabularius/core/store';
+import { of } from 'rxjs';
 
 interface TestSchema {
   account: AccountState;
@@ -30,7 +32,16 @@ describe('AccountFacade', () => {
           StoreModule.forFeature('account', accountReducer, { initialState }),
           EffectsModule.forFeature([AccountEffects])
         ],
-        providers: [AccountFacade]
+        providers: [
+          AccountFacade,
+          {
+            provide: ApiAuthFacade,
+            useValue: {
+              user$: of({ uid: '123', email: '456' }),
+              error$: of('Error')
+            }
+          }
+        ]
       })
       class CustomFeatureModule {}
 

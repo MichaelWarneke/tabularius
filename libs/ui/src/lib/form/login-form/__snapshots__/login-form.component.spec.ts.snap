@@ -3,6 +3,7 @@
 exports[`LoginFormComponent should render 1`] = `
 <tabu-login-form
   credentials={[Function Object]}
+  error=""
   formModel={[Function FormSetup]}
   login={[Function EventEmitter]}
 >
