@@ -28,4 +28,8 @@ describe('NavComponent', () => {
   it('should compile', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render', () => {
+    expect(fixture).toMatchSnapshot();
+  });
 });

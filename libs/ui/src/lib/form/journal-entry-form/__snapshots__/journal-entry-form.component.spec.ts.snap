@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JournalEntryFormComponent should render 1`] = `
+<tabu-journal-entry-form
+  _journal={[Function Object]}
+  copy={[Function EventEmitter]}
+  delete={[Function EventEmitter]}
+  formModel={[Function FormSetup]}
+  save={[Function EventEmitter]}
+>
+  <h1>
+    Journal Form
+  </h1><tabu-dynamic-form /><hr />
+  {
+    "id": "123",
+    "date": "2018-12-31T00:00:00.000Z",
+    "dateOfTransaction": null,
+    "dateOfEstimateTransaction": null,
+    "supplier": null,
+    "customer": "Cust",
+    "employee": null,
+    "comment": "Hello",
+    "entries": [
+      {
+        "account": "office",
+        "amount": 12.4,
+        "currency": "AUD",
+        "amountForeignCurrency": null,
+        "currencyForeign": null,
+        "comment": "Hello"
+      }
+    ]
+  }
+  
+</tabu-journal-entry-form>
+`;

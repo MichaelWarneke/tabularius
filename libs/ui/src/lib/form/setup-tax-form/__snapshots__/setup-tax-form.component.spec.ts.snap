@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SetupTaxFormComponent should render 1`] = `
+<tabu-setup-tax-form
+  deleteTax={[Function EventEmitter]}
+  saveTax={[Function EventEmitter]}
+  tax="null"
+>
+  <h1>
+    Tax Form
+  </h1><tabu-dynamic-form />
+</tabu-setup-tax-form>
+`;

@@ -38,7 +38,7 @@ import { apiAuthQuery } from './api-auth.selectors';
 
 @Injectable()
 export class ApiAuthEffects {
-  @Effect() onAuthStateChange: Observable<
+  @Effect() onAuthStateChange$: Observable<
     ApiAuthChanged
   > = this.db.getAuthUser().pipe(
     switchMap((user: IUser | null) => {

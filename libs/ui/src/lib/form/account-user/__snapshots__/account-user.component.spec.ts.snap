@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountUserComponent should render 1`] = `
+<tabu-account-user
+  _user="null"
+  formModel={[Function FormSetup]}
+  save={[Function EventEmitter]}
+>
+  <h1>
+    Account Form
+  </h1><tabu-dynamic-form />
+</tabu-account-user>
+`;

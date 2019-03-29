@@ -8,6 +8,7 @@
     "build": "ng build",
     "test": "ng test --passWithNoTests",
     "test-headless": "ng test --passWithNoTests --watch=false",
+    "jest": "jest",
     "lint": "./node_modules/.bin/nx lint && ng lint",
     "e2e": "ng e2e",
     "e2e-tabu": "ng e2e frontend-tabu-app-e2e",

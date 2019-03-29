@@ -1,0 +1,192 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavComponent should render 1`] = `
+<tabu-app-sidenav
+  breakpointObserver={[Function BreakpointObserver]}
+  isAuth="false"
+  isHandset$={[Function Observable]}
+  sidenav={[Function MatSidenav]}
+>
+  <mat-sidenav-container
+    class="sidenav-container mat-drawer-container mat-sidenav-container"
+  >
+    
+    <div
+      class="mat-drawer-backdrop ng-star-inserted"
+    />
+    <div
+      aria-hidden="true"
+      class="cdk-visually-hidden cdk-focus-trap-anchor"
+    />
+    <mat-sidenav
+      class="sidenav mat-drawer mat-sidenav ng-tns-c7-0 ng-trigger ng-trigger-transform mat-drawer-side mat-sidenav-fixed ng-star-inserted"
+      fixedinviewport="true"
+      ng-reflect-fixed-in-viewport="true"
+      ng-reflect-mode="side"
+      ng-reflect-opened="true"
+      role="navigation"
+      style="top:0px;bottom:0px;transform:none;visibility:visible;0:top;1:bottom;2:transform;3:visibility;"
+      tabindex="-1"
+    >
+      <div
+        class="mat-drawer-inner-container"
+      >
+        <mat-toolbar
+          class="mat-toolbar mat-toolbar-single-row"
+        >
+          Menu
+        </mat-toolbar>
+        <mat-nav-list
+          class="mat-nav-list mat-list-base"
+          role="navigation"
+        >
+          <a
+            class="mat-list-item"
+            href="/dash"
+            mat-list-item=""
+            ng-reflect-router-link="/dash"
+            ng-reflect-router-link-active="active"
+            routerlink="/dash"
+            routerlinkactive="active"
+          >
+            <div
+              class="mat-list-item-content"
+            >
+              <div
+                class="mat-list-item-ripple mat-ripple"
+                mat-ripple=""
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/dash"
+              />
+              <div
+                class="mat-list-text"
+              />
+              Dash
+            </div>
+          </a>
+          <a
+            class="mat-list-item"
+            href="/journal"
+            mat-list-item=""
+            ng-reflect-router-link="/journal"
+            ng-reflect-router-link-active="active"
+            routerlink="/journal"
+            routerlinkactive="active"
+          >
+            <div
+              class="mat-list-item-content"
+            >
+              <div
+                class="mat-list-item-ripple mat-ripple"
+                mat-ripple=""
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/journal"
+              />
+              <div
+                class="mat-list-text"
+              />
+              Journal
+            </div>
+          </a>
+          <a
+            class="mat-list-item"
+            href="/reports"
+            mat-list-item=""
+            ng-reflect-router-link="/reports"
+            ng-reflect-router-link-active="active"
+            routerlink="/reports"
+            routerlinkactive="active"
+          >
+            <div
+              class="mat-list-item-content"
+            >
+              <div
+                class="mat-list-item-ripple mat-ripple"
+                mat-ripple=""
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/reports"
+              />
+              <div
+                class="mat-list-text"
+              />
+              Reports
+            </div>
+          </a>
+          <a
+            class="mat-list-item"
+            href="/import"
+            mat-list-item=""
+            ng-reflect-router-link="/import"
+            ng-reflect-router-link-active="active"
+            routerlink="/import"
+            routerlinkactive="active"
+          >
+            <div
+              class="mat-list-item-content"
+            >
+              <div
+                class="mat-list-item-ripple mat-ripple"
+                mat-ripple=""
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/import"
+              />
+              <div
+                class="mat-list-text"
+              />
+              Import
+            </div>
+          </a>
+          <a
+            class="mat-list-item"
+            href="/setup"
+            mat-list-item=""
+            ng-reflect-router-link="/setup"
+            ng-reflect-router-link-active="active"
+            routerlink="/setup"
+            routerlinkactive="active"
+          >
+            <div
+              class="mat-list-item-content"
+            >
+              <div
+                class="mat-list-item-ripple mat-ripple"
+                mat-ripple=""
+                ng-reflect-disabled="false"
+                ng-reflect-trigger="http://localhost/setup"
+              />
+              <div
+                class="mat-list-text"
+              />
+              Setup
+            </div>
+          </a>
+        </mat-nav-list>
+      </div>
+    </mat-sidenav>
+    <div
+      aria-hidden="true"
+      class="cdk-visually-hidden cdk-focus-trap-anchor"
+    />
+    <mat-sidenav-content
+      class="mat-drawer-content mat-sidenav-content"
+    >
+      <mat-toolbar
+        class="mat-toolbar mat-primary mat-toolbar-single-row"
+        color="primary"
+        ng-reflect-color="primary"
+      >
+        
+        <span>
+          TABULARIUS
+        </span>
+        <span>
+           false
+        </span>
+        <tabu-account-menu />
+      </mat-toolbar>
+      <router-outlet />
+    </mat-sidenav-content>
+    
+  </mat-sidenav-container>
+</tabu-app-sidenav>
+`;

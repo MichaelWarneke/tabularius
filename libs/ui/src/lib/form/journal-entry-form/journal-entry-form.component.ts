@@ -20,7 +20,7 @@ const fakeJournalEntry = {
 
 const fakeJournal = {
   id: '123',
-  date: new Date(Date.now()),
+  date: new Date('2018-12-31'),
   dateOfTransaction: null,
   dateOfEstimateTransaction: null,
   supplier: null,

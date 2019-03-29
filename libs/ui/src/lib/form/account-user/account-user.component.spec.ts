@@ -26,4 +26,8 @@ describe('AccountUserComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render', () => {
+    expect(fixture).toMatchSnapshot();
+  });
 });
