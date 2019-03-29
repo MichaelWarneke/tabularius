@@ -4,13 +4,13 @@ node_js:
 cache:
   yarn: true
   directories:
-    - '~/.cache'
+    - ./node_modules
 dist: trusty
 sudo: required
 branches:
   only:
     - master
-before_script:
+before_install:
   - yarn global add @angular/cli firebase-tools
 
 jobs:
@@ -23,7 +23,9 @@ jobs:
     - script: yarn e2e-tabu --headless
       name: 'E2E Tests'
 
-    - stage: BuildAndDeploy
-      script:
-        - yarn build --prod --aot
-        - firebase deploy --token $FIREBASE_TOKEN
+    - stage: 'Build'
+      script: yarn build --prod --aot
+
+    - stage: 'Deploy'
+      skip_cleanup: true
+      script: firebase deploy --token $FIREBASE_TOKEN
