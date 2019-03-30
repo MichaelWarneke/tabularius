@@ -16,9 +16,14 @@ install:
   - yarn add ci
   - yarn global add @angular/cli firebase-tools
 
+stages:
+  - tests
+  - build
+  - deploy
+
 jobs:
   include:
-    - stage: 'Tests'
+    - stage: tests
       name: 'Lint Tests'
       script: yarn lint
     - script: yarn test-headless
@@ -26,8 +31,10 @@ jobs:
     - script: yarn e2e-tabu --headless
       name: 'E2E Tests'
 
-    - stage: 'Build'
+    - stage: build
       script: yarn build --prod --aot
+
+    - stage: deploy
 
 deploy:
   provider: firebase
