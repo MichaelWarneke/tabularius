@@ -13,8 +13,8 @@ branches:
   only:
     - master
 install:
-  - apt-get install xvfb libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2
-  - yarn global add @angular/cli firebase-tools ci
+  - npm ci
+  - yarn global add @angular/cli firebase-tools
 
 jobs:
   include:
