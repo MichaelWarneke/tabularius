@@ -13,7 +13,7 @@ branches:
   only:
     - master
 install:
-  - yarn ci
+  - yarn add ci
   - yarn global add @angular/cli firebase-tools
 
 jobs:
