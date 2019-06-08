@@ -21,7 +21,7 @@ export class TabuAppSidenavComponent implements OnInit {
     .observe(Breakpoints.Handset)
     .pipe(map(result => result.matches));
 
-  @ViewChild('drawer') sidenav?: MatSidenav;
+  @ViewChild('drawer', { static: false }) sidenav?: MatSidenav;
   @Input() userName: string | null | undefined;
   @Input() isAuth = false;
 

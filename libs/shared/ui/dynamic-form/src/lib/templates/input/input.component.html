@@ -1,4 +1,8 @@
-<mat-form-field class="tabu-input" [formGroup]="group">
+<mat-form-field
+  class="tabu-input"
+  [formGroup]="group"
+  [style.max-width.px]="control?.maxWidth"
+>
   <input
     matInput
     [type]="hide ? control?.type : 'text'"

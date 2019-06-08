@@ -2,19 +2,8 @@ import { IJournal, IJournalEntry } from '@tabularius/shared/models';
 import {
   FormControlTextbox,
   FormControlDate,
-  Validators,
-  FormControlArray
+  Validators
 } from '@tabularius/shared/dynamic-form';
-import {
-  FormArray,
-  FormGroup,
-  AbstractControl,
-  FormControl,
-  ValidatorFn,
-  AbstractControlOptions,
-  AsyncValidatorFn,
-  FormBuilder
-} from '@angular/forms';
 
 export class JournalEntryFormModel implements IJournalEntry {
   account = new FormControlTextbox('', [Validators.required]);
@@ -25,11 +14,17 @@ export class JournalEntryFormModel implements IJournalEntry {
   comment = new FormControlTextbox('', []);
   constructor() {
     this.account.label = 'Account';
+    this.account.maxWidth = 200;
     this.amount.label = 'Amount';
+    this.amount.maxWidth = 60;
     this.currency.label = 'Currency';
+    this.currency.maxWidth = 60;
     this.amountForeignCurrency.label = 'Amount Foreign';
+    this.amountForeignCurrency.maxWidth = 60;
     this.currencyForeign.label = 'Foreign Currency';
+    this.currencyForeign.maxWidth = 60;
     this.comment.label = 'Comment';
+    this.comment.maxWidth = 300;
   }
 }
 export class JournalFormModel implements IJournal {
@@ -42,15 +37,19 @@ export class JournalFormModel implements IJournal {
   comment = new FormControlTextbox('', []);
   entries: JournalEntryFormModel[] = new Array<JournalEntryFormModel>(
     new JournalEntryFormModel()
-  ); // = new FormControlArray([new JournalEntryFormModel()]);
+  );
   constructor() {
     this.date.label = 'Date';
     this.dateOfTransaction.label = 'Transaction Date';
     this.dateOfEstimateTransaction.label = 'Est. Trans. Date';
     this.customer.label = 'Customer';
+    this.customer.maxWidth = 150;
     this.supplier.label = 'Supplier';
+    this.supplier.maxWidth = 150;
     this.employee.label = 'Employee';
+    this.employee.maxWidth = 150;
     this.comment.label = 'Comment';
+    this.comment.maxWidth = 300;
   }
 }
 
@@ -60,13 +59,6 @@ export class FormSetup {
   copyButtonText = 'Copy';
   deleteButtonText = 'Delete';
   resetButtonText = 'Reset';
-  /*  constructor(fb: FormBuilder) {
-    this.model = fb.group({
-      ...new JournalFormModel(),
-      entries: fb.array([fb.group(new JournalEntryFormModel())])
-    });
-  }
-  */
 }
 
 export class FormEntrySetup {

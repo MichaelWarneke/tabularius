@@ -12,9 +12,13 @@ export class UserFormModel implements IUserAbstract {
   photoURL = new FormControlTextbox('', []);
   constructor() {
     this.uid.label = 'User ID';
+    this.uid.maxWidth = 300;
     this.email.label = 'Email';
+    this.email.maxWidth = 300;
     this.displayName.label = 'User Name';
+    this.displayName.maxWidth = 300;
     this.photoURL.label = 'Photo URL';
+    this.photoURL.maxWidth = 300;
   }
 }
 

@@ -10,6 +10,7 @@ export class FormControlBase extends FormControl {
   controlType = '';
   key = '';
   label = '';
+  maxWidth = 100;
   constructor(
     formState?: any,
     validatorOrOpts?:
