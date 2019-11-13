@@ -1,7 +1,0 @@
-<h1>Login Form</h1>
-<div class="error-message" *ngIf="error">{{ error }}</div>
-<tabu-dynamic-form
-  [formModel]="formModel"
-  [data]="credentials"
-  (saveEntry)="onlogin($event)"
-></tabu-dynamic-form>

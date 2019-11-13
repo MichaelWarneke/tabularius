@@ -1,8 +1,0 @@
-<h3>{{ key }}</h3>
-<div [formGroup]="group">
-  <div [formArrayName]="key">
-    <div *ngFor="let list of getNestedForm()?.controls">
-      <tabu-dynamic-form-group [form]="list"></tabu-dynamic-form-group>
-    </div>
-  </div>
-</div>

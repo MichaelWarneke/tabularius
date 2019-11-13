@@ -1,50 +1,26 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es5",
-    "module": "es2015",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@tabularius/ui": ["libs/ui/src/index.ts"],
-      "@tabularius/modules/app-dash": ["libs/modules/app-dash/src/index.ts"],
-      "@tabularius/modules/app-journal": [
-        "libs/modules/app-journal/src/index.ts"
-      ],
-      "@tabularius/modules/app-reports": [
-        "libs/modules/app-reports/src/index.ts"
-      ],
-      "@tabularius/modules/app-import": [
-        "libs/modules/app-import/src/index.ts"
-      ],
-      "@tabularius/modules/app-setup": ["libs/modules/app-setup/src/index.ts"],
-      "@tabularius/shared/models": ["libs/shared/models/src/index.ts"],
-      "@tabularius/shared/web-core": ["libs/shared/web-core/src/index.ts"],
-      "@tabularius/shared/services": ["libs/shared/services/src/index.ts"],
-      "@tabularius/modules/app-account": [
-        "libs/modules/app-account/src/index.ts"
-      ],
-      "@tabularius/database": ["libs/database/src/index.ts"],
-      "@tabularius/core/store": ["libs/core/store/src/index.ts"],
-      "@tabularius/core/router-guards": [
-        "libs/core/router-guards/src/index.ts"
-      ],
-      "@tabularius/modules/app-shell": ["libs/modules/app-shell/src/index.ts"],
-      "@tabularius/shared/dynamic-form": [
-        "libs/shared/ui/dynamic-form/src/index.ts"
-      ],
-      "@tabularius/shared/ui": ["libs/shared/ui/shared/src/index.ts"]
-    },
-    "strict": true
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ]
   },
-  "exclude": ["node_modules", "tmp"]
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
 }

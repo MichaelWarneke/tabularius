@@ -1,7 +1,0 @@
-{
-  "extends": "../../../../tslint.json",
-  "rules": {
-    "directive-selector": [true, "attribute", "tabuSharedUi", "camelCase"],
-    "component-selector": [true, "element", "tabu-shared-ui", "kebab-case"]
-  }
-}
