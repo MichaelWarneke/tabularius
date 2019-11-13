@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../../dist/out-tsc/apps/frontend/tabu-app",
+    "outDir": "../../../dist/out-tsc",
     "types": []
   },
   "exclude": ["src/test-setup.ts", "**/*.spec.ts"],
@@ -17,5 +17,8 @@
     "../../../libs/modules/app-setup/src/index.ts",
 
     "../../../libs/modules/app-account/src/index.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "enableIvy": true
+  }
 }

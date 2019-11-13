@@ -1,6 +1,6 @@
 import { NgModule, Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { readFirst } from '@nrwl/nx/testing';
+import { readFirst } from '@nrwl/angular/testing';
 
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule, Store } from '@ngrx/store';
@@ -10,7 +10,7 @@ import { ApiAuthFacade } from './api-auth.facade';
 
 import { ApiAuthState, initialState, apiAuthReducer } from './api-auth.reducer';
 import { ICredentials, IUser } from '@tabularius/shared/models';
-import { NxModule } from '@nrwl/nx';
+import { NxModule } from '@nrwl/angular';
 import { IAuthService } from '@tabularius/database';
 import { Observable, of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';

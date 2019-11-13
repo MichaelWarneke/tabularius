@@ -9,7 +9,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 //import { environment } from '../../environments/environment';
 import { CustomSerializer } from '@tabularius/shared/services';
 import { CoreStoreModule } from '@tabularius/core/store';
-import { NxModule } from '@nrwl/nx';
+import { NxModule } from '@nrwl/angular';
 
 @NgModule({
   imports: [

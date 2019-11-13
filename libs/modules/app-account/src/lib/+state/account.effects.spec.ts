@@ -6,7 +6,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { provideMockActions } from '@ngrx/effects/testing';
 
-import { hot } from '@nrwl/nx/testing';
+import { hot } from '@nrwl/angular/testing';
 
 import { AccountEffects } from './account.effects';
 import { Login, Logout, Update } from './account.actions';

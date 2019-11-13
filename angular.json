@@ -90,7 +90,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/frontend/tabu-app/jest.config.js",
             "tsConfig": "apps/frontend/tabu-app/tsconfig.spec.json",
@@ -105,7 +105,7 @@
       "prefix": "",
       "architect": {
         "e2e": {
-          "builder": "@nrwl/builders:cypress",
+          "builder": "@nrwl/cypress:cypress",
           "options": {
             "cypressConfig": "apps/frontend/tabu-app-e2e/cypress.json",
             "tsConfig": "apps/frontend/tabu-app-e2e/tsconfig.e2e.json",
@@ -134,7 +134,7 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@nrwl/builders:node-build",
+          "builder": "@nrwl/node:build",
           "options": {
             "outputPath": "dist/apps/backend/functions",
             "main": "apps/backend/functions/src/main.ts",
@@ -156,7 +156,7 @@
           }
         },
         "serve": {
-          "builder": "@nrwl/builders:node-execute",
+          "builder": "@nrwl/node:execute",
           "options": {
             "buildTarget": "backend-functions:build"
           }
@@ -172,7 +172,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/backend/functions/jest.config.js",
             "tsConfig": "apps/backend/functions/tsconfig.spec.json"
@@ -197,7 +197,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
             "tsConfig": "libs/ui/tsconfig.spec.json",
@@ -228,7 +228,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/modules/app-dash/jest.config.js",
             "tsConfig": "libs/modules/app-dash/tsconfig.spec.json",
@@ -259,7 +259,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/modules/app-journal/jest.config.js",
             "tsConfig": "libs/modules/app-journal/tsconfig.spec.json",
@@ -290,7 +290,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/modules/app-reports/jest.config.js",
             "tsConfig": "libs/modules/app-reports/tsconfig.spec.json",
@@ -321,7 +321,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/modules/app-import/jest.config.js",
             "tsConfig": "libs/modules/app-import/tsconfig.spec.json",
@@ -352,7 +352,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/modules/app-setup/jest.config.js",
             "tsConfig": "libs/modules/app-setup/tsconfig.spec.json",
@@ -383,7 +383,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/models/jest.config.js",
             "tsConfig": "libs/shared/models/tsconfig.spec.json"
@@ -413,7 +413,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/web-core/jest.config.js",
             "tsConfig": "libs/shared/web-core/tsconfig.spec.json",
@@ -444,7 +444,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/services/jest.config.js",
             "tsConfig": "libs/shared/services/tsconfig.spec.json"
@@ -474,7 +474,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/modules/app-account/jest.config.js",
             "tsConfig": "libs/modules/app-account/tsconfig.spec.json",
@@ -505,7 +505,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/database/jest.config.js",
             "tsConfig": "libs/database/tsconfig.spec.json",
@@ -536,7 +536,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/core/store/jest.config.js",
             "tsConfig": "libs/core/store/tsconfig.spec.json",
@@ -567,7 +567,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/core/router-guards/jest.config.js",
             "tsConfig": "libs/core/router-guards/tsconfig.spec.json"
@@ -597,7 +597,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/modules/app-shell/jest.config.js",
             "tsConfig": "libs/modules/app-shell/tsconfig.spec.json",
@@ -628,7 +628,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/ui/dynamic-form/jest.config.js",
             "tsConfig": "libs/shared/ui/dynamic-form/tsconfig.spec.json",
@@ -659,7 +659,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/builders:jest",
+          "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/shared/ui/shared/jest.config.js",
             "tsConfig": "libs/shared/ui/shared/tsconfig.spec.json",
@@ -679,7 +679,7 @@
       "typescriptMismatch": false,
       "versionMismatch": false
     },
-    "defaultCollection": "@nrwl/schematics"
+    "defaultCollection": "@nrwl/angular"
   },
   "schematics": {
     "@nrwl/schematics:application": {

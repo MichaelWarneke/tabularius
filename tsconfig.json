@@ -44,7 +44,8 @@
       ],
       "@tabularius/shared/ui": ["libs/shared/ui/shared/src/index.ts"]
     },
-    "strict": true
+    "strict": true,
+    "rootDir": "."
   },
   "exclude": ["node_modules", "tmp"]
 }
