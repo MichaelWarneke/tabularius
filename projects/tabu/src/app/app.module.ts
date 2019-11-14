@@ -12,12 +12,20 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { StartComponent } from './views/start/start.component';
+import { JournalComponent } from './views/journal/journal.component';
+import { BalanceComponent } from './views/balance/balance.component';
+import { PAndLComponent } from './views/p-and-l/p-and-l.component';
+import { CoaComponent } from './views/coa/coa.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TabuNavComponent,
-    StartComponent
+    StartComponent,
+    JournalComponent,
+    BalanceComponent,
+    PAndLComponent,
+    CoaComponent
   ],
   imports: [
     BrowserModule,
