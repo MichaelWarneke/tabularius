@@ -1,0 +1,17 @@
+{
+  "extends": "../../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "tabuLib",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "tabu-lib",
+      "kebab-case"
+    ]
+  }
+}

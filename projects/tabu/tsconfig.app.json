@@ -9,6 +9,11 @@
     "src/polyfills.ts"
   ],
   "include": [
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "../tabu-lib/modules/journal/src/index.ts",
+    "../tabu-lib/modules/balance/src/index.ts",
+    "../tabu-lib/modules/coa/src/index.ts",
+    "../tabu-lib/modules/p-and-l/src/index.ts",
+    "../tabu-lib/modules/home/src/index.ts"
   ]
 }

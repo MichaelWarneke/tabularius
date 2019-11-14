@@ -19,13 +19,27 @@
       "dom"
     ],
     "paths": {
-      "tabu-lib": [
-        "dist/tabu-lib"
+      "@tabu-lib/core": [
+        "projects/tabu-lib/core/src/index.ts"
       ],
-      "tabu-lib/*": [
-        "dist/tabu-lib/*"
+      "@tabu-lib/modules/journal": [
+        "projects/tabu-lib/modules/journal/src/index.ts"
+      ],
+      "@tabu-lib/modules/balance": [
+        "projects/tabu-lib/modules/balance/src/index.ts"
+      ],
+      "@tabu-lib/modules/coa": [
+        "projects/tabu-lib/modules/coa/src/index.ts"
+      ],
+      "@tabu-lib/modules/p-and-l": [
+        "projects/tabu-lib/modules/p-and-l/src/index.ts"
+      ],
+      "@tabu-lib/modules/home": [
+        "projects/tabu-lib/modules/home/src/index.ts"
       ]
-    }
+    },
+    "strict": true,
+    "rootDir": "."
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

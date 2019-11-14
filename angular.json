@@ -126,38 +126,138 @@
         }
       }
     },
-    "tabu-lib": {
+    "modules-journal": {
       "projectType": "library",
-      "root": "projects/tabu-lib",
-      "sourceRoot": "projects/tabu-lib/src",
-      "prefix": "tabu-lib",
+      "root": "projects/tabu-lib/modules/journal",
+      "sourceRoot": "projects/tabu-lib/modules/journal/src",
+      "prefix": "journal",
       "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/tabu-lib/tsconfig.lib.json",
-            "project": "projects/tabu-lib/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/tabu-lib/tsconfig.lib.prod.json"
-            }
-          }
-        },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/tabu-lib/src/test.ts",
-            "tsConfig": "projects/tabu-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/tabu-lib/karma.conf.js"
+            "main": "projects/tabu-lib/modules/journal/src/test.ts",
+            "tsConfig": "projects/tabu-lib/modules/journal/tsconfig.spec.json",
+            "karmaConfig": "projects/tabu-lib/modules/journal/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/tabu-lib/tsconfig.lib.json",
-              "projects/tabu-lib/tsconfig.spec.json"
+              "projects/tabu-lib/modules/journal/tsconfig.lib.json",
+              "projects/tabu-lib/modules/journal/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "modules-balance": {
+      "projectType": "library",
+      "root": "projects/tabu-lib/modules/balance",
+      "sourceRoot": "projects/tabu-lib/modules/balance/src",
+      "prefix": "balance",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tabu-lib/modules/balance/src/test.ts",
+            "tsConfig": "projects/tabu-lib/modules/balance/tsconfig.spec.json",
+            "karmaConfig": "projects/tabu-lib/modules/balance/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tabu-lib/modules/balance/tsconfig.lib.json",
+              "projects/tabu-lib/modules/balance/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "modules-coa": {
+      "projectType": "library",
+      "root": "projects/tabu-lib/modules/coa",
+      "sourceRoot": "projects/tabu-lib/modules/coa/src",
+      "prefix": "lib",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tabu-lib/modules/coa/src/test.ts",
+            "tsConfig": "projects/tabu-lib/modules/coa/tsconfig.spec.json",
+            "karmaConfig": "projects/tabu-lib/modules/coa/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tabu-lib/modules/coa/tsconfig.lib.json",
+              "projects/tabu-lib/modules/coa/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "modules-p-and-l": {
+      "projectType": "library",
+      "root": "projects/tabu-lib/modules/p-and-l",
+      "sourceRoot": "projects/tabu-lib/modules/p-and-l/src",
+      "prefix": "lib",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tabu-lib/modules/p-and-l/src/test.ts",
+            "tsConfig": "projects/tabu-lib/modules/p-and-l/tsconfig.spec.json",
+            "karmaConfig": "projects/tabu-lib/modules/p-and-l/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tabu-lib/modules/p-and-l/tsconfig.lib.json",
+              "projects/tabu-lib/modules/p-and-l/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "modules-home": {
+      "projectType": "library",
+      "root": "projects/tabu-lib/modules/home",
+      "sourceRoot": "projects/tabu-lib/modules/home/src",
+      "prefix": "lib",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tabu-lib/modules/home/src/test.ts",
+            "tsConfig": "projects/tabu-lib/modules/home/tsconfig.spec.json",
+            "karmaConfig": "projects/tabu-lib/modules/home/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tabu-lib/modules/home/tsconfig.lib.json",
+              "projects/tabu-lib/modules/home/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
