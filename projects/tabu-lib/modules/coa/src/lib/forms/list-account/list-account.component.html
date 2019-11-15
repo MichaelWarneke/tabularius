@@ -1,0 +1,4 @@
+LIST <p>Total : {{total | json}}</p>
+<mat-nav-list>
+  <coe-list-item-account *ngFor="let account of accounts" [account]="account"></coe-list-item-account>
+</mat-nav-list>

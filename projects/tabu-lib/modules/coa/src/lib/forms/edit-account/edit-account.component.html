@@ -1,15 +1,28 @@
 <p>edit-account works!</p>
-<form class="edit-account-form">
+<form [formGroup]="accountForm" (ngSubmit)="onSubmit()" class="edit-account-form">
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Name">
+    <input matInput placeholder="Name" formControlName="name">
+  </mat-form-field>
+  <mat-error *ngIf="getName().hasError('required') && getName().touched">
+    Name is <strong>required</strong>
+  </mat-error>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Group" formControlName="groupName">
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <mat-label>Group</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let group of groups" [value]="group.value">
-        {{group.viewValue}}
-      </mat-option>
-    </mat-select>
+    <input matInput placeholder="Sub-Group" formControlName="subGroup_name">
   </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Statement" formControlName="statement_name">
+  </mat-form-field>
+
+  <button mat-raised-button color="accent" type="button" (click)="onNew()" class="form-new-button">New</button>
+  <button mat-raised-button color="primary" type="submit" [disabled]="!accountForm.valid"
+    class="form-submit-button">Save</button>
 </form>
+<p>
+  Form Status: {{ accountForm.status }}
+</p>
