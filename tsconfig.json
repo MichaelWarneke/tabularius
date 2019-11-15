@@ -19,6 +19,9 @@
       "dom"
     ],
     "paths": {
+      "@tabu/*": [
+        "./projects/tabu/src/app/*"
+      ],
       "@tabu-lib/core": [
         "projects/tabu-lib/core/src/index.ts"
       ],

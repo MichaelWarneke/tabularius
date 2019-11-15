@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { metaReducers, ROOT_REDUCERS } from './reducers';
 import { StoreRouterConnectingModule, RouterState } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../../environments/environment';
@@ -16,17 +16,19 @@ import { entityConfig } from './entity-metadata';
   declarations: [],
   imports: [
     CommonModule,
-    StoreModule.forRoot(reducers, {
+    StoreModule.forRoot(ROOT_REDUCERS, {
       metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,
-        strictActionImmutability: true
+        strictActionImmutability: true,
+        strictStateSerializability: true,
+        strictActionSerializability: true,
       }
     }),
     StoreRouterConnectingModule.forRoot({
       routerState: RouterState.Minimal
     }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production, name: 'Tabularius App' }),
     EffectsModule.forRoot([AppEffects])
     //EntityDataModule.forRoot(entityConfig)
 
