@@ -22,6 +22,9 @@
       "@tabu/*": [
         "./projects/tabu/src/app/*"
       ],
+      "@tabu-lib/data": [
+        "projects/tabu-lib/data/index.ts"
+      ],
       "@tabu-lib/models": [
         "projects/tabu-lib/models/index.ts"
       ],

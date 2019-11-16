@@ -10,6 +10,8 @@ import * as fromCoa from './reducers';
 import * as fromAcconts from './reducers/account.reducer';
 import { ListAccountComponent } from './forms/list-account/list-account.component';
 import { ListItemAccountComponent } from './forms/list-item-account/list-item-account.component';
+import { EffectsModule } from '@ngrx/effects';
+import { AccountEffects } from './effects/account.effects';
 
 
 
@@ -21,7 +23,8 @@ import { ListItemAccountComponent } from './forms/list-item-account/list-item-ac
     ReactiveFormsModule,
     MaterialModule,
     StoreModule.forFeature(fromCoa.coaFeatureKey, fromCoa.reducers, { metaReducers: fromCoa.metaReducers }),
-    StoreModule.forFeature(fromAcconts.accountsFeatureKey, fromAcconts.reducer)
+    StoreModule.forFeature(fromAcconts.accountsFeatureKey, fromAcconts.reducer),
+    EffectsModule.forFeature([AccountEffects])
   ],
   exports: []
 })

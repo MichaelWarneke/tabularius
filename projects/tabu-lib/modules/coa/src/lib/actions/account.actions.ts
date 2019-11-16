@@ -4,9 +4,18 @@ import { Update } from '@ngrx/entity';
 import { Account } from '@tabu-lib/models';
 
 export const loadAccounts = createAction(
-  '[Account/API] Load Accounts',
-  props<{ accounts: Account[] }>()
+  '[Account/API] Load Accounts'
 );
+
+export const loadAccountsSuccess = createAction(
+  '[Account/API] Load Accounts Success',
+  props<{ accounts: Account[] }>()
+)
+
+export const loadAccountsFailure = createAction(
+  '[Account/API] Load Accounts Failure',
+  props<{ error: string }>()
+)
 
 export const addAccount = createAction(
   '[Account/API] Add Account',

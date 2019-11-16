@@ -1,0 +1,1 @@
+export { coaData } from './coa';

@@ -2,6 +2,7 @@ import { Action, createReducer, on, createFeatureSelector, createSelector } from
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import * as AccountActions from '../actions/account.actions';
 import { Account } from '@tabu-lib/models';
+import { coaData } from 'projects/tabu-lib/data';
 
 export const accountsFeatureKey = 'accounts';
 
@@ -23,6 +24,7 @@ export const adapter: EntityAdapter<Account> = createEntityAdapter<Account>({
   selectId: selectAccountId,
   sortComparer: sortByName,
 });
+
 
 export const initialState: AccountState = adapter.getInitialState({
   // additional entity state properties
@@ -55,7 +57,7 @@ const accountReducer = createReducer(
   on(AccountActions.deleteAccounts,
     (state, action) => adapter.removeMany(action.ids, state)
   ),
-  on(AccountActions.loadAccounts,
+  on(AccountActions.loadAccountsSuccess,
     (state, action) => adapter.addAll(action.accounts, state)
   ),
   on(AccountActions.clearAccounts,
@@ -64,6 +66,7 @@ const accountReducer = createReducer(
 );
 
 export function reducer(state: AccountState | undefined, action: Action) {
+  console.log('red :', action);
   return accountReducer(state, action);
 }
 
