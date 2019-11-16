@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { Account } from '@tabu-lib/models';
 
 @Component({
@@ -9,9 +9,14 @@ import { Account } from '@tabu-lib/models';
 })
 export class ListItemAccountComponent implements OnInit {
   @Input() account: Account | null = null;
+  @Output() deleteAccount = new EventEmitter<Account>();
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onDelete(account: Account) {
+    this.deleteAccount.emit(account);
   }
 
 }

@@ -19,14 +19,30 @@ export class EditAccountComponent implements OnInit {
     id: [''],
     name: ['', Validators.required],
     group_id: [''],
-    groupName: [''],
+    group_name: [''],
     subGroup_id: [''],
     subGroup_name: [''],
     statement_id: [''],
     statement_name: ['']
   })
   @Output() saveAccount = new EventEmitter<Account>();
-  @Input() account: Account | null = null;
+  @Output() newAccount = new EventEmitter();
+  private _account: Account | null = null;
+  @Input()
+  set account(account: Account | null) {
+    this._account = account;
+    if (account == null) {
+      this.accountForm.reset();
+    }
+    else {
+      this.accountForm.patchValue(this._account as any);
+    }
+
+  };
+
+  get account() {
+    return this._account;
+  }
 
   groups: Group[] = [
     { value: 'expense', viewValue: 'Expense' },
@@ -52,6 +68,7 @@ export class EditAccountComponent implements OnInit {
   onNew() {
     console.log("New");
     this.accountForm.reset();
+    this.newAccount.emit();
   }
 
 }

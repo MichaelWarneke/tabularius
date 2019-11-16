@@ -1,2 +1,10 @@
-<mat-list-item> Name: {{account ? account.name : ''}} </mat-list-item>
+<mat-list-item>
+  <h3 mat-line>{{account ? account.name : ''}}</h3>
+  <p mat-line>
+    <span>{{account ? account.group_name : ''}}</span>
+  </p>
+  <button mat-icon-button (click)="onDelete(account)">
+    <mat-icon matListIcon>delete</mat-icon>
+  </button>
+</mat-list-item>
 <mat-divider></mat-divider>

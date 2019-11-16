@@ -1,3 +1,6 @@
 <h1>Chart of Accounts</h1>
-<coa-edit-account (saveAccount)="onSaveAccount($event)" [account]="selectedAccount$ | async"></coa-edit-account>
-<coa-list-account [accounts]="accounts$ | async" [total]="accountsTotal$ | async"></coa-list-account>
+<coa-edit-account (saveAccount)="onSaveAccount($event)" [account]="selectedAccount$ | async"
+  (newAccount)="onNewAccount()"></coa-edit-account>
+<coa-list-account [accounts]="accounts$ | async" [total]="accountsTotal$ | async"
+  (selectAccount)="onSelectAccount($event)" [selectedAccountId]="selectedAccountId$ | async"
+  (deleteAccount)="onDeleteAccount($event)"></coa-list-account>

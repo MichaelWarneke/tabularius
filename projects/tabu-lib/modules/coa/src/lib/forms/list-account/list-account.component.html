@@ -1,4 +1,6 @@
-LIST <p>Total : {{total | json}}</p>
+<p>Total : {{total | json}} Selected Id: {{selectedAccountId}}</p>
 <mat-nav-list>
-  <coe-list-item-account *ngFor="let account of accounts" [account]="account"></coe-list-item-account>
+  <coe-list-item-account (click)="selectItem(account)" *ngFor="let account of accounts" [account]="account"
+    (deleteAccount)="deleteAccount.emit($event)">
+  </coe-list-item-account>
 </mat-nav-list>

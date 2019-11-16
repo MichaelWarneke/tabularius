@@ -36,7 +36,12 @@ const accountReducer = createReducer(
     (state, action) => adapter.addOne(action.account, state)
   ),
   on(AccountActions.upsertAccount,
-    (state, action) => adapter.upsertOne(action.account, state)
+    (state, action) => {
+      if (action.account.id == null) {
+        return adapter.upsertOne({ ...action.account, id: action.account.name }, state);
+      }
+      return adapter.upsertOne(action.account, state);
+    }
   ),
   on(AccountActions.addAccounts,
     (state, action) => adapter.addMany(action.accounts, state)
@@ -62,10 +67,11 @@ const accountReducer = createReducer(
   on(AccountActions.clearAccounts,
     state => adapter.removeAll(state)
   ),
+  on(AccountActions.selectAccount,
+    (state, action) => ({ ...state, selectedAccountId: action.accountId }))
 );
 
 export function reducer(state: AccountState | undefined, action: Action) {
-  console.log('red :', action);
   return accountReducer(state, action);
 }
 
@@ -79,7 +85,10 @@ export const {
   selectTotal,
 } = adapter.getSelectors(selectAccountState);
 
-export const getSelectedAccountId = (state: AccountState) => state.selectedAccountId;
+export const getSelectedAccountId = createSelector(
+  selectAccountState,
+  (state) => state.selectedAccountId
+)
 
 export const getSelectedAccount = createSelector(
   selectEntities,

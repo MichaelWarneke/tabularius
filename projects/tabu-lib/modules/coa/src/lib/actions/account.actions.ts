@@ -60,3 +60,8 @@ export const deleteAccounts = createAction(
 export const clearAccounts = createAction(
   '[Account/API] Clear Accounts'
 );
+
+export const selectAccount = createAction(
+  '[Account/View] Select Account',
+  props<{ accountId: string | null }>()
+);

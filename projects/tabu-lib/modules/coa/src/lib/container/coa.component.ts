@@ -16,19 +16,34 @@ export class CoaComponent implements OnInit {
   accounts$: Observable<Account[]>;
   accountsTotal$: Observable<number>;
   selectedAccount$: Observable<Account | null | undefined>;
+  selectedAccountId$: Observable<string | null>;
 
   constructor(private store: Store<fromAccounts.AccountState>) {
     this.accounts$ = store.pipe(select(fromAccounts.selectAll));
     this.accountsTotal$ = store.pipe(select(fromAccounts.selectTotal));
-    this.selectedAccount$ = store.pipe(select(fromAccounts.getSelectedAccount))
+    this.selectedAccount$ = store.pipe(select(fromAccounts.getSelectedAccount));
+    this.selectedAccountId$ = store.pipe(select(fromAccounts.getSelectedAccountId));
   }
 
   onSaveAccount(account: Account) {
-    console.log("onSave :", account);
     this.store.dispatch(accountActions.upsertAccount({ account }));
   }
+
+  onSelectAccount(account: Account) {
+    this.store.dispatch(accountActions.selectAccount({ accountId: account.id }));
+  }
+
+  onNewAccount() {
+    this.store.dispatch(accountActions.selectAccount({ accountId: null }));
+  }
+
+  onDeleteAccount(account: Account) {
+    this.store.dispatch(accountActions.deleteAccount({ id: account.id }));
+  }
+
   ngOnInit() {
     //this.store.dispatch(accountActions.loadAccounts());
   }
+
 
 }
