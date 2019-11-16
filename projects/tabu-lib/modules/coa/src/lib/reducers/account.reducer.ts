@@ -2,7 +2,6 @@ import { Action, createReducer, on, createFeatureSelector, createSelector } from
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import * as AccountActions from '../actions/account.actions';
 import { Account } from '@tabu-lib/models';
-import { coaData } from 'projects/tabu-lib/data';
 
 export const accountsFeatureKey = 'accounts';
 

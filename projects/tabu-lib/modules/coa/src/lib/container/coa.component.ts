@@ -28,7 +28,7 @@ export class CoaComponent implements OnInit {
     this.store.dispatch(accountActions.upsertAccount({ account }));
   }
   ngOnInit() {
-    this.store.dispatch(accountActions.loadAccounts());
+    //this.store.dispatch(accountActions.loadAccounts());
   }
 
 }

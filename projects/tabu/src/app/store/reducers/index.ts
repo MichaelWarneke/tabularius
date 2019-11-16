@@ -19,6 +19,8 @@ import * as fromRouter from '@ngrx/router-store';
 import * as fromLayout from '@tabu/store/reducers/layout.reducer';
 import { InjectionToken } from '@angular/core';
 
+import { storageSyncMetaReducer } from 'ngrx-store-persist';
+
 /**
  * As mentioned, we treat each reducer like a table in a database. This means
  * our top level state interface is just a map of keys to inner state types.
@@ -62,7 +64,7 @@ export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
  * that will be composed to form the root meta-reducer.
  */
 export const metaReducers: MetaReducer<State>[] = !environment.production
-  ? [logger]
+  ? [logger, storageSyncMetaReducer ]
   : [];
 
 /**
