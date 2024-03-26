@@ -66,7 +66,7 @@
     "@ngrx/store-devtools": "7.3.0",
     "@nrwl/angular": "8.1.0",
     "core-js": "^2.5.4",
-    "express": "4.16.3",
+    "express": "4.19.2",
     "firebase": "^5.9.1",
     "firebase-admin": "^7.1.1",
     "firebase-functions": "^2.2.1",
